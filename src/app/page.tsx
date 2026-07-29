@@ -4,6 +4,7 @@ import { useState } from "react";
 import SectionHeading from "@/components/SectionHeading";
 import CourseCard, { CourseProps } from "@/components/CourseCard";
 import PricingCard, { PricingPlan } from "@/components/PricingCard";
+import ReserveSeatModal from "@/components/ReserveSeatModal";
 import ScrollReveal from "@/components/ScrollReveal";
 import {
   GiBookAura,
@@ -28,6 +29,7 @@ import {
   FiMapPin,
   FiCheck,
   FiX,
+  FiBookmark,
 } from "react-icons/fi";
 import { FaQuran, FaStar, FaWhatsapp } from "react-icons/fa";
 
@@ -158,7 +160,7 @@ const pricingPlans: PricingPlan[] = [
       "Flexible Class Rescheduling",
       "Monthly Progress Reports",
     ],
-    ctaText: "Start Starter Plan ($10)",
+    ctaText: "Reserve Starter Seat ($10)",
   },
   {
     id: "standard",
@@ -175,7 +177,7 @@ const pricingPlans: PricingPlan[] = [
       "24/7 Student Portal Access",
     ],
     popular: true,
-    ctaText: "Get Standard Plan ($20)",
+    ctaText: "Reserve Standard Seat ($20)",
   },
   {
     id: "intensive",
@@ -191,7 +193,7 @@ const pricingPlans: PricingPlan[] = [
       "Official Ijazah Certification Track",
       "Priority WhatsApp Tutor Access",
     ],
-    ctaText: "Join Intensive Track ($50)",
+    ctaText: "Reserve Intensive Seat ($50)",
   },
 ];
 
@@ -269,6 +271,9 @@ const faqs = [
 
 export default function Home() {
   const [playingId, setPlayingId] = useState<string | null>("1");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("Norani Qaida & Basic Quran for Kids ($10/mo)");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -280,6 +285,11 @@ export default function Home() {
   const [responseMsg, setResponseMsg] = useState("");
 
   const currentTrack = tracks.find((t) => t.id === playingId) || tracks[0];
+
+  const openModal = (courseName?: string) => {
+    if (courseName) setSelectedCourse(courseName);
+    setIsModalOpen(true);
+  };
 
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -303,7 +313,7 @@ export default function Home() {
 
       if (res.ok) {
         setStatus("success");
-        setResponseMsg(data.message || "Thank you! Your trial request has been submitted.");
+        setResponseMsg(data.message || "Thank you! We will confirm your seat within 24 hours.");
         setFormData({
           name: "",
           email: "",
@@ -323,6 +333,13 @@ export default function Home() {
 
   return (
     <div className="space-y-24 pb-16 overflow-hidden">
+      {/* Reserve Seat Popup Modal */}
+      <ReserveSeatModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        defaultCourse={selectedCourse}
+      />
+
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center pt-28 pb-16 bg-islamic-pattern">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-sage-200/30 rounded-full blur-3xl pointer-events-none" />
@@ -358,13 +375,13 @@ export default function Home() {
 
               <ScrollReveal direction="up" delay={0.4}>
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                  <a
-                    href="#contact-section"
+                  <button
+                    onClick={() => openModal()}
                     className="w-full sm:w-auto px-8 py-4 rounded-full bg-sage-700 text-cream-50 font-extrabold text-base hover:bg-sage-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 border border-sage-600"
                   >
-                    <span>Book Your Free Trial</span>
-                    <FiArrowRight className="w-5 h-5 text-gold-400" />
-                  </a>
+                    <FiBookmark className="w-5 h-5 text-gold-400" />
+                    <span>Reserve Seat Now</span>
+                  </button>
 
                   <a
                     href="#courses-section"
@@ -404,34 +421,35 @@ export default function Home() {
                         <FaQuran />
                       </div>
                       <h3 className="font-serif font-bold text-2xl text-sage-900">
-                        Start 3-Day Free Trial
+                        Reserve Your Seat
                       </h3>
                       <p className="text-xs sm:text-sm text-sage-900 font-medium">
-                        Experience our interactive 1-on-1 virtual classroom with no obligation.
+                        View Meezan Bank details & submit your reservation form.
                       </p>
                     </div>
 
                     <div className="space-y-3 text-sm">
                       <div className="flex items-center justify-between p-3 rounded-xl bg-sage-50 border border-sage-200">
-                        <span className="font-bold text-sage-900">1. Free Assessment</span>
-                        <span className="text-xs text-gold-600 font-extrabold">15 Mins</span>
+                        <span className="font-bold text-sage-900">1. Select Program</span>
+                        <span className="text-xs text-gold-600 font-extrabold">$10 / $20 / $50</span>
                       </div>
                       <div className="flex items-center justify-between p-3 rounded-xl bg-sage-50 border border-sage-200">
-                        <span className="font-bold text-sage-900">2. Personalized Plan</span>
-                        <span className="text-xs text-gold-600 font-extrabold">Custom</span>
+                        <span className="font-bold text-sage-900">2. Meezan Bank Details</span>
+                        <span className="text-xs text-gold-600 font-extrabold">Instant Copy</span>
                       </div>
                       <div className="flex items-center justify-between p-3 rounded-xl bg-sage-50 border border-sage-200">
-                        <span className="font-bold text-sage-900">3. Match Tutors</span>
-                        <span className="text-xs text-gold-600 font-extrabold">1-on-1</span>
+                        <span className="font-bold text-sage-900">3. Confirmation</span>
+                        <span className="text-xs text-gold-600 font-extrabold">Within 24 Hours</span>
                       </div>
                     </div>
 
-                    <a
-                      href="#contact-section"
-                      className="block w-full text-center py-3.5 rounded-full bg-gold-400 text-sage-900 font-extrabold text-sm hover:bg-gold-300 transition-colors shadow-md"
+                    <button
+                      onClick={() => openModal()}
+                      className="w-full text-center py-3.5 rounded-full bg-gold-400 text-sage-900 font-extrabold text-sm hover:bg-gold-300 transition-colors shadow-md flex items-center justify-center gap-2"
                     >
-                      Schedule Trial Session Now
-                    </a>
+                      <FiBookmark />
+                      <span>Reserve Seat Now</span>
+                    </button>
                   </div>
                 </div>
               </ScrollReveal>
@@ -441,7 +459,7 @@ export default function Home() {
       </section>
 
       {/* 2. STATS BANNER */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <ScrollReveal direction="up">
           <div className="bg-sage-900 rounded-3xl p-8 sm:p-12 text-cream-50 shadow-xl border border-sage-800 relative overflow-hidden">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
@@ -472,10 +490,21 @@ export default function Home() {
             </div>
           </div>
         </ScrollReveal>
+
+        {/* Section Action Button */}
+        <div className="text-center">
+          <button
+            onClick={() => openModal()}
+            className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
+          >
+            <FiBookmark className="text-gold-400" />
+            <span>Reserve Seat Now</span>
+          </button>
+        </div>
       </section>
 
-      {/* 3. COURSES SHOWCASE SECTION (EXACTLY 3 PROGRAMS) */}
-      <section id="courses-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+      {/* 3. COURSES SHOWCASE SECTION */}
+      <section id="courses-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28 space-y-10">
         <SectionHeading
           badge="Structured Learning Tracks"
           title="Our Academy Programs"
@@ -489,11 +518,22 @@ export default function Home() {
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Section Action Button */}
+        <div className="text-center pt-4">
+          <button
+            onClick={() => openModal()}
+            className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
+          >
+            <FiBookmark className="text-gold-400" />
+            <span>Reserve Program Seat</span>
+          </button>
+        </div>
       </section>
 
       {/* 4. WHY CHOOSE US SECTION */}
       <section className="bg-sage-50 py-20 border-y border-sage-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <SectionHeading
             badge="Excellence in Education"
             title="Why Students Choose Noor Quran Academy"
@@ -520,11 +560,22 @@ export default function Home() {
               );
             })}
           </div>
+
+          {/* Section Action Button */}
+          <div className="text-center pt-4">
+            <button
+              onClick={() => openModal()}
+              className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
+            >
+              <FiBookmark className="text-gold-400" />
+              <span>Reserve Seat Now</span>
+            </button>
+          </div>
         </div>
       </section>
 
       {/* 5. AUDIO RECITATIONS SANCTUARY SECTION */}
-      <section id="recitations-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+      <section id="recitations-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28 space-y-10">
         <SectionHeading
           badge="Audio Sanctuary"
           title="Inspiring Quran Recitations"
@@ -625,11 +676,22 @@ export default function Home() {
             );
           })}
         </div>
+
+        {/* Section Action Button */}
+        <div className="text-center pt-4">
+          <button
+            onClick={() => openModal()}
+            className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
+          >
+            <FiBookmark className="text-gold-400" />
+            <span>Reserve Seat Now</span>
+          </button>
+        </div>
       </section>
 
       {/* 6. FREE RESOURCES SECTION */}
-      <section id="resources-section" className="bg-sage-50 py-20 border-y border-sage-200 scroll-mt-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="resources-section" className="bg-sage-50 py-20 border-y border-sage-200 scroll-mt-28 space-y-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <SectionHeading
             badge="Free PDF Downloads"
             title="Printable Study Worksheets & Charts"
@@ -672,6 +734,17 @@ export default function Home() {
                 </div>
               </ScrollReveal>
             ))}
+          </div>
+
+          {/* Section Action Button */}
+          <div className="text-center pt-4">
+            <button
+              onClick={() => openModal()}
+              className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
+            >
+              <FiBookmark className="text-gold-400" />
+              <span>Reserve Seat Now</span>
+            </button>
           </div>
         </div>
       </section>
@@ -754,10 +827,21 @@ export default function Home() {
             </div>
           </div>
         </ScrollReveal>
+
+        {/* Section Action Button */}
+        <div className="text-center pt-4">
+          <button
+            onClick={() => openModal()}
+            className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
+          >
+            <FiBookmark className="text-gold-400" />
+            <span>Reserve Seat Now</span>
+          </button>
+        </div>
       </section>
 
       {/* 8. TESTIMONIALS SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <SectionHeading
           badge="Student Stories"
           title="Words From Our Blessed Community"
@@ -857,6 +941,17 @@ export default function Home() {
               </ScrollReveal>
             ))}
           </div>
+
+          {/* Section Action Button */}
+          <div className="text-center pt-4">
+            <button
+              onClick={() => openModal()}
+              className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
+            >
+              <FiBookmark className="text-gold-400" />
+              <span>Reserve Seat Now</span>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -884,8 +979,8 @@ export default function Home() {
                   <div className="mb-6 p-4 rounded-xl bg-sage-100 border border-sage-300 text-sage-900 text-sm flex items-start gap-3">
                     <FiCheckCircle className="text-sage-700 w-5 h-5 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-extrabold">Request Sent Successfully!</p>
-                      <p className="text-xs font-semibold mt-1 text-sage-800">{responseMsg}</p>
+                      <p className="font-extrabold text-base">Request Sent Successfully!</p>
+                      <p className="text-xs font-bold mt-1 text-sage-900">{responseMsg}</p>
                     </div>
                   </div>
                 )}
@@ -958,13 +1053,13 @@ export default function Home() {
                         onChange={handleFormChange}
                         className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-300 text-sm font-extrabold text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-700"
                       >
-                        <option value="Norani Qaida & Basic Quran for Kids">
+                        <option value="Norani Qaida & Basic Quran for Kids ($10/mo)">
                           Norani Qaida & Basic Quran for Kids ($10/mo)
                         </option>
-                        <option value="Quran Reading & Tajweed Rules">
+                        <option value="Quran Reading & Tajweed Rules ($20/mo)">
                           Quran Reading & Tajweed Rules ($20/mo)
                         </option>
-                        <option value="Full Quran Hifz Program">
+                        <option value="Full Quran Hifz Program ($50/mo)">
                           Full Quran Hifz Program ($50/mo)
                         </option>
                       </select>
