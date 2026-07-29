@@ -30,19 +30,22 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Huzaifa's Online Quran Classes | Learn Quran, Tajweed & Hifz 1-on-1",
+  title: "Online Quran Classes USA, UK, Canada & Australia | Huzaifa's Online Quran Academy",
   description:
-    "Join Huzaifa's Online Quran Classes for 1-on-1 personalized Quran reading, Norani Qaida for kids, Tajweed rules, and Hifz memorization with Al-Azhar certified native tutors. $10, $20, $50/mo.",
+    "Top-rated 1-on-1 Online Quran Classes for kids & adults in USA, UK, Canada, Australia & UAE. Certified Al-Azhar tutors for Norani Qaida, Tajweed rules & Hifz memorization. Flexible schedules starting at $10/mo.",
   keywords: [
+    "Online Quran Classes USA",
+    "Online Quran Tutor UK",
+    "Quran Teacher Canada",
+    "Learn Tajweed Australia",
+    "Norani Qaida for Kids USA",
+    "Female Quran Tutor UK",
+    "Quran Memorization Hifz USA",
+    "1-on-1 Quran Lessons London",
+    "Online Quran Academy New York",
+    "Quran Teacher Sydney",
     "Huzaifa's Online Quran Classes",
     "Huzaifa Quran Academy",
-    "Online Quran Tutor",
-    "Norani Qaida for Kids",
-    "Learn Tajweed Online",
-    "Quran Memorization Hifz",
-    "1-on-1 Quran Lessons",
-    "Female Quran Tutor",
-    "Online Quran Academy",
   ],
   authors: [{ name: "Huzaifa Khan" }],
   creator: "Huzaifa Khan",
@@ -53,19 +56,20 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Huzaifa's Online Quran Classes | Serene 1-on-1 Learning",
+    title: "Online Quran Classes USA, UK, Canada & Australia | Huzaifa's Online Quran Academy",
     description:
-      "Empowering kids and adults worldwide with authentic Norani Qaida, Tajweed rules, and Quran memorization under certified native Arab scholars. Starts at $10/mo.",
+      "Empowering kids and adults worldwide in USA, UK, Canada, Australia & UAE with authentic Norani Qaida, Tajweed rules, and Quran memorization under certified native Arab scholars. Starts at $10/mo.",
     url: "https://quranpk.vercel.app",
     siteName: "Huzaifa's Online Quran Classes",
     locale: "en_US",
+    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_AE"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Huzaifa's Online Quran Classes | Learn Quran 1-on-1",
+    title: "Online Quran Classes USA, UK, Canada & Australia",
     description:
-      "Learn Norani Qaida, Tajweed, and Hifz online with certified native Arab tutors. Reserve your seat with Meezan Bank billing.",
+      "Learn Norani Qaida, Tajweed, and Hifz online in USA, UK, Canada, Australia & UAE with certified native Arab tutors.",
   },
   robots: {
     index: true,
@@ -83,7 +87,7 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD Structured Data Schema for Google SEO
+// International Educational Organization JSON-LD Schema for Google SEO
 const jsonLdSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -94,7 +98,15 @@ const jsonLdSchema = {
       "url": "https://quranpk.vercel.app",
       "logo": "https://quranpk.vercel.app/logo.png",
       "description":
-        "Online Quran academy offering 1-on-1 Norani Qaida, Tajweed rules, and Hifz memorization for kids and adults worldwide.",
+        "International online Quran academy offering 1-on-1 Norani Qaida, Tajweed rules, and Hifz memorization for kids and adults across USA, UK, Canada, Australia & UAE.",
+      "areaServed": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "Australia",
+        "United Arab Emirates",
+        "Europe"
+      ],
       "sameAs": ["https://github.com/Hkmrkhan/quranpk"],
       "offers": [
         {
