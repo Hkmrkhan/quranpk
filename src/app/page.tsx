@@ -536,7 +536,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <SectionHeading
             badge="Excellence in Education"
-            title="Why Students Choose Noor Quran Academy"
+            title="Why Students Choose Huzaifa's Online Quran Classes"
             subtitle="We combine traditional Al-Azhar methodology with modern virtual tools to deliver an inspiring, spiritual learning environment."
           />
 

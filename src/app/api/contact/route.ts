@@ -20,7 +20,6 @@ export async function POST(request: Request) {
     const smtpPass = process.env.SMTP_PASS;
     const contactEmail = process.env.CONTACT_EMAIL || "hkmrkhan10@gmail.com";
 
-    // If SMTP credentials exist, send real emails via Nodemailer
     if (smtpHost && smtpUser && smtpPass) {
       const transporter = nodemailer.createTransport({
         host: smtpHost,
@@ -48,17 +47,17 @@ export async function POST(request: Request) {
         }
       }
 
-      // 1. Email to Receiver / Academy Admin
+      // 1. Email to Receiver / Admin (Huzaifa Khan)
       const adminMailOptions = {
-        from: `"Noor Quran Academy" <${smtpUser}>`,
+        from: `"Huzaifa's Online Quran Classes" <${smtpUser}>`,
         to: contactEmail,
         replyTo: email,
         subject: `🚨 New Seat Reservation Request from ${name} [${course || "Norani Qaida"}]`,
         attachments: attachments,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #FAF7F2; padding: 25px; border-radius: 16px; border: 1px solid #C5D7C5; color: #051309;">
-            <div style="text-align: center; border-b: 2px solid #D4AF37; pb: 15px; margin-bottom: 20px;">
-              <h1 style="color: #12331C; margin: 0; font-size: 24px;">NOOR QURAN ACADEMY</h1>
+            <div style="text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 15px; margin-bottom: 20px;">
+              <h1 style="color: #12331C; margin: 0; font-size: 22px;">HUZAIFA'S ONLINE QURAN CLASSES</h1>
               <p style="color: #8A670D; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;">New Seat Reservation & Payment Proof</p>
             </div>
 
@@ -90,24 +89,24 @@ export async function POST(request: Request) {
 
       // 2. Email to Sender / Student (Confirmation email)
       const studentMailOptions = {
-        from: `"Noor Quran Academy" <${smtpUser}>`,
+        from: `"Huzaifa's Online Quran Classes" <${smtpUser}>`,
         to: email,
-        subject: `Seat Reservation Confirmation — Noor Quran Academy`,
+        subject: `Seat Reservation Confirmation — Huzaifa's Online Quran Classes`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #FAF7F2; padding: 25px; border-radius: 16px; border: 1px solid #C5D7C5; color: #051309;">
-            <div style="text-align: center; border-b: 2px solid #D4AF37; pb: 15px; margin-bottom: 20px;">
-              <h1 style="color: #12331C; margin: 0; font-size: 24px;">NOOR QURAN ACADEMY</h1>
+            <div style="text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 15px; margin-bottom: 20px;">
+              <h1 style="color: #12331C; margin: 0; font-size: 22px;">HUZAIFA'S ONLINE QURAN CLASSES</h1>
               <p style="color: #8A670D; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;">Assalamu Alaikum wa Rahmatullah</p>
             </div>
 
             <div style="background-color: #FFFFFF; padding: 20px; border-radius: 12px; border: 1px solid #E0ECE1; margin-bottom: 20px;">
               <h2 style="color: #12331C; font-size: 18px; margin-top: 0;">Dear ${name},</h2>
               <p style="font-size: 15px; line-height: 1.6; color: #0B2413;">
-                Thank you for reserving your seat at <strong>Noor Quran Academy</strong> for <strong>${course}</strong>. We have received your details and payment submission.
+                Thank you for reserving your seat at <strong>Huzaifa's Online Quran Classes</strong> for <strong>${course}</strong>. We have received your payment details.
               </p>
               <div style="background-color: #F2F6F3; padding: 15px; border-radius: 10px; border-left: 4px solid #12331C; margin: 15px 0;">
                 <p style="margin: 0; font-weight: bold; color: #12331C; font-size: 15px;">
-                  ✨ We will verify your payment and confirm your seat within 24 hours.
+                  ✨ We will confirm your seat within 24 hours.
                 </p>
               </div>
             </div>
@@ -122,14 +121,13 @@ export async function POST(request: Request) {
             </div>
 
             <div style="text-align: center; color: #12331C; font-size: 13px; font-weight: bold;">
-              <p style="margin: 0;">If you have any urgent questions, reach us on WhatsApp: +1 (800) 555-7872</p>
-              <p style="margin: 4px 0 0 0; color: #8A670D;">Noor Quran Academy • Empowering Quranic Learning Worldwide</p>
+              <p style="margin: 0;">If you have any questions, reach us on WhatsApp: +92 326 0113711</p>
+              <p style="margin: 4px 0 0 0; color: #8A670D;">Huzaifa's Online Quran Classes • Empowering Quranic Learning Worldwide</p>
             </div>
           </div>
         `,
       };
 
-      // Send both emails in parallel
       await Promise.all([
         transporter.sendMail(adminMailOptions),
         transporter.sendMail(studentMailOptions),

@@ -13,7 +13,7 @@ interface ReserveSeatModalProps {
 export default function ReserveSeatModal({
   isOpen,
   onClose,
-  defaultCourse = "Norani Qaida & Basic Quran for Kids",
+  defaultCourse = "Norani Qaida & Basic Quran for Kids ($10/mo)",
 }: ReserveSeatModalProps) {
   const [formData, setFormData] = useState({
     name: "",
@@ -97,19 +97,19 @@ export default function ReserveSeatModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-sage-950/80 backdrop-blur-md animate-in fade-in duration-300">
-      <div className="relative w-full max-w-2xl bg-cream-50 rounded-3xl shadow-2xl border border-sage-300 overflow-hidden max-h-[90vh] flex flex-col my-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-sage-950/80 backdrop-blur-md animate-in fade-in duration-300">
+      <div className="relative w-full max-w-2xl bg-cream-50 rounded-3xl shadow-2xl border border-sage-300 overflow-hidden max-h-[92vh] flex flex-col my-auto">
         {/* Modal Header */}
-        <div className="bg-sage-900 text-cream-50 p-6 sm:p-8 relative flex items-center justify-between border-b border-sage-800">
+        <div className="bg-sage-900 text-cream-50 p-5 sm:p-7 relative flex items-center justify-between border-b border-sage-800">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center text-2xl flex-shrink-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center text-xl sm:text-2xl flex-shrink-0">
               <FaQuran />
             </div>
             <div>
-              <span className="text-xs font-extrabold text-gold-400 uppercase tracking-widest block">
-                Official Seat Reservation
+              <span className="text-[10px] sm:text-xs font-extrabold text-gold-400 uppercase tracking-widest block">
+                Huzaifa's Online Quran Classes
               </span>
-              <h2 className="font-serif font-bold text-2xl text-cream-50">
+              <h2 className="font-serif font-bold text-xl sm:text-2xl text-cream-50">
                 Reserve Your Quran Seat
               </h2>
             </div>
@@ -117,49 +117,49 @@ export default function ReserveSeatModal({
 
           <button
             onClick={onClose}
-            className="w-10 h-10 rounded-full bg-sage-800 text-cream-100 flex items-center justify-center hover:bg-sage-700 hover:text-gold-400 transition-colors"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sage-800 text-cream-100 flex items-center justify-center hover:bg-sage-700 hover:text-gold-400 transition-colors"
             aria-label="Close modal"
           >
-            <FiX className="w-6 h-6" />
+            <FiX className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
+        <div className="p-5 sm:p-8 overflow-y-auto space-y-5">
           {/* Billing Info Box */}
-          <div className="bg-sage-900 text-cream-50 rounded-2xl p-6 border border-gold-500/40 space-y-4 shadow-md">
+          <div className="bg-sage-900 text-cream-50 rounded-2xl p-5 border border-gold-500/40 space-y-4 shadow-md">
             <div className="flex items-center gap-2 border-b border-sage-800 pb-3">
-              <FaLandmark className="text-gold-400 text-xl" />
-              <h3 className="font-serif font-bold text-lg text-gold-400">
+              <FaLandmark className="text-gold-400 text-lg sm:text-xl" />
+              <h3 className="font-serif font-bold text-base sm:text-lg text-gold-400">
                 Meezan Bank Account Details
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
-              <div className="bg-sage-950/60 p-3.5 rounded-xl border border-sage-800">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
+              <div className="bg-sage-950/60 p-3 sm:p-3.5 rounded-xl border border-sage-800">
                 <span className="text-sage-300 font-bold block uppercase text-[10px] tracking-wider">
                   Receiver Name
                 </span>
-                <span className="text-cream-50 font-extrabold text-base block mt-0.5">
+                <span className="text-cream-50 font-extrabold text-sm sm:text-base block mt-0.5">
                   Huzaifa Khan
                 </span>
               </div>
 
-              <div className="bg-sage-950/60 p-3.5 rounded-xl border border-sage-800">
+              <div className="bg-sage-950/60 p-3 sm:p-3.5 rounded-xl border border-sage-800">
                 <span className="text-sage-300 font-bold block uppercase text-[10px] tracking-wider">
                   Bank Name
                 </span>
-                <span className="text-cream-50 font-extrabold text-base block mt-0.5">
+                <span className="text-cream-50 font-extrabold text-sm sm:text-base block mt-0.5">
                   Meezan Bank
                 </span>
               </div>
 
-              <div className="bg-sage-950/60 p-3.5 rounded-xl border border-sage-800 flex items-center justify-between">
+              <div className="bg-sage-950/60 p-3 sm:p-3.5 rounded-xl border border-sage-800 flex items-center justify-between">
                 <div>
                   <span className="text-sage-300 font-bold block uppercase text-[10px] tracking-wider">
                     Account Number
                   </span>
-                  <span className="text-gold-400 font-mono font-extrabold text-base block mt-0.5">
+                  <span className="text-gold-400 font-mono font-extrabold text-sm sm:text-base block mt-0.5">
                     03260113711856
                   </span>
                 </div>
@@ -173,19 +173,19 @@ export default function ReserveSeatModal({
                 </button>
               </div>
 
-              <div className="bg-sage-950/60 p-3.5 rounded-xl border border-sage-800 flex items-center justify-between">
-                <div>
+              <div className="bg-sage-950/60 p-3 sm:p-3.5 rounded-xl border border-sage-800 flex items-center justify-between">
+                <div className="overflow-hidden">
                   <span className="text-sage-300 font-bold block uppercase text-[10px] tracking-wider">
                     IBAN
                   </span>
-                  <span className="text-gold-400 font-mono font-extrabold text-xs sm:text-sm block mt-0.5 truncate max-w-[150px] sm:max-w-[180px]">
+                  <span className="text-gold-400 font-mono font-extrabold text-xs sm:text-sm block mt-0.5 truncate max-w-[140px] sm:max-w-[180px]">
                     PK40MEZN0003260113711856
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleCopy("PK40MEZN0003260113711856", "iban")}
-                  className="p-2 rounded-lg bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors"
+                  className="p-2 rounded-lg bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors flex-shrink-0"
                   title="Copy IBAN"
                 >
                   {copiedField === "iban" ? <FiCheck className="w-4 h-4 text-green-400" /> : <FiCopy className="w-4 h-4" />}
@@ -260,7 +260,7 @@ export default function ReserveSeatModal({
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="+92 300 0000000"
+                  placeholder="+92 326 0113711"
                   className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-300 text-sm font-bold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
                 />
               </div>

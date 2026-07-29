@@ -5,11 +5,11 @@ import { FaQuran } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-sage-900 text-cream-100 relative overflow-hidden pt-16 pb-10 border-t border-sage-800">
+    <footer className="bg-sage-900 text-cream-50 relative overflow-hidden pt-16 pb-10 border-t border-sage-800">
       <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-sage-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-sage-800">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3">
@@ -17,18 +17,18 @@ export default function Footer() {
                 <GiBookAura className="w-6 h-6" />
               </div>
               <div>
-                <span className="font-serif font-bold text-xl tracking-tight text-cream-50">
-                  NOOR QURAN ACADEMY
+                <span className="font-serif font-extrabold text-xl tracking-tight text-cream-50">
+                  HUZAIFA'S
                 </span>
-                <p className="text-[10px] tracking-widest uppercase text-gold-400 font-semibold">
-                  Serene Online Learning
+                <p className="text-[10px] tracking-widest uppercase text-gold-400 font-extrabold">
+                  ONLINE QURAN CLASSES
                 </p>
               </div>
             </Link>
-            <p className="text-sage-200/80 text-sm leading-relaxed max-w-sm">
-              Empowering students worldwide with authentic Norani Qaida, Quranic education, precise Tajweed rules, and spiritual enrichment under certified native Arab scholars.
+            <p className="text-cream-100 text-sm leading-relaxed max-w-sm font-medium">
+              Empowering students worldwide with authentic Norani Qaida, Quranic education, precise Tajweed rules, and spiritual enrichment under certified native scholars.
             </p>
-            <div className="pt-2 flex items-center gap-2 text-gold-400 text-sm font-serif italic">
+            <div className="pt-2 flex items-center gap-2 text-gold-400 text-sm font-serif italic font-bold">
               <FaQuran className="text-gold-400" />
               <span>&ldquo;Read! In the Name of your Lord Who created&rdquo; (96:1)</span>
             </div>
@@ -36,10 +36,10 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif text-cream-50 font-semibold text-lg mb-4 border-b border-gold-500/30 pb-2 inline-block">
+            <h4 className="font-serif text-cream-50 font-bold text-lg mb-4 border-b border-gold-500/30 pb-2 inline-block">
               Quick Links
             </h4>
-            <ul className="space-y-2.5 text-sm text-sage-200/80">
+            <ul className="space-y-2.5 text-sm font-medium text-cream-100">
               <li>
                 <a href="/#courses-section" className="hover:text-gold-400 transition-colors">
                   Academy Programs
@@ -57,7 +57,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="/#pricing-section" className="hover:text-gold-400 transition-colors">
-                  Tuition & Plans ($10 - $50)
+                  Tuition Plans ($10 - $50)
                 </a>
               </li>
               <li>
@@ -70,14 +70,14 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-            <h4 className="font-serif text-cream-50 font-semibold text-lg mb-4 border-b border-gold-500/30 pb-2 inline-block">
+            <h4 className="font-serif text-cream-50 font-bold text-lg mb-4 border-b border-gold-500/30 pb-2 inline-block">
               Academy Programs
             </h4>
-            <ul className="space-y-2.5 text-sm text-sage-200/80">
+            <ul className="space-y-2.5 text-sm font-medium text-cream-100">
               <li>Norani Qaida & Basic Quran ($10/mo)</li>
               <li>Quran Reading & Tajweed Rules ($20/mo)</li>
               <li>Complete Quran Hifz Program ($50/mo)</li>
-              <li>1-on-1 Certified Scholars</li>
+              <li>1-on-1 Certified Tutors</li>
               <li>Female Tutors Available</li>
               <li>Official Ijazah Track</li>
             </ul>
@@ -85,29 +85,29 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div>
-            <h4 className="font-serif text-cream-50 font-semibold text-lg mb-4 border-b border-gold-500/30 pb-2 inline-block">
+            <h4 className="font-serif text-cream-50 font-bold text-lg mb-4 border-b border-gold-500/30 pb-2 inline-block">
               Get in Touch
             </h4>
-            <ul className="space-y-3 text-sm text-sage-200/80">
+            <ul className="space-y-3 text-sm font-medium text-cream-100">
               <li className="flex items-center gap-3">
                 <FiMail className="text-gold-400 w-4 h-4 flex-shrink-0" />
-                <span>info@noorquranacademy.com</span>
+                <span>hkmrkhan10@gmail.com</span>
               </li>
               <li className="flex items-center gap-3">
                 <FiPhone className="text-gold-400 w-4 h-4 flex-shrink-0" />
-                <span>+1 (800) 555-QURAN</span>
+                <span>+92 (326) 0113711</span>
               </li>
               <li className="flex items-start gap-3">
                 <FiMapPin className="text-gold-400 w-4 h-4 flex-shrink-0 mt-1" />
-                <span>Global Online Campus • USA & International</span>
+                <span>Global Online Campus • Worldwide</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-sage-300/70">
-          <p>© {new Date().getFullYear()} Noor Quran Academy. All rights reserved.</p>
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold text-cream-100/80">
+          <p>© {new Date().getFullYear()} Huzaifa's Online Quran Classes. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="/#contact-section" className="hover:text-gold-400 transition-colors">
               Privacy Policy
