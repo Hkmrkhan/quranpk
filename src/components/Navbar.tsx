@@ -6,9 +6,10 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Courses", href: "/#courses-section" },
-  { name: "Recitations", href: "/#recitations-section" },
-  { name: "Resources", href: "/#resources-section" },
+  { name: "Surahs", href: "/surah" },
+  { name: "Programs", href: "/#courses-section" },
+  { name: "Duas", href: "/dua" },
+  { name: "Articles", href: "/articles" },
   { name: "Pricing", href: "/#pricing-section" },
   { name: "Contact", href: "/#contact-section" },
 ];
