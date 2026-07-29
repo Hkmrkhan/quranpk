@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiX, FiCheckCircle, FiAlertCircle, FiSend, FiCopy, FiCheck, FiUploadCloud, FiFileText } from "react-icons/fi";
 import { FaLandmark } from "react-icons/fa";
 
@@ -28,6 +28,18 @@ export default function ReserveSeatModal({
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [responseMsg, setResponseMsg] = useState("");
   const [copiedField, setCopiedField] = useState<string | null>(null);
+
+  // Lock background page scroll completely when popup modal is active
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -97,7 +109,7 @@ export default function ReserveSeatModal({
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-sage-950/95 backdrop-blur-xl animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[999] w-screen h-screen min-h-screen flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-sage-950/98 backdrop-blur-2xl animate-in fade-in duration-200">
       <div className="relative w-full max-w-2xl bg-cream-50 rounded-2xl sm:rounded-3xl shadow-2xl border border-sage-300 overflow-hidden flex flex-col my-auto max-h-[92vh] sm:max-h-[88vh]">
         {/* Modal Header */}
         <div className="bg-sage-900 text-cream-50 px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-sage-800 flex-shrink-0">
