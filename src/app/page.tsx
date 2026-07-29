@@ -1109,39 +1109,6 @@ export default function Home() {
                 <div className="space-y-5 text-sm sm:text-base font-semibold">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center flex-shrink-0 mt-1">
-                      <FiMail />
-                    </div>
-                    <div>
-                      <h4 className="font-extrabold text-cream-50">Email Support</h4>
-                      <p className="text-xs sm:text-sm text-cream-100 mt-0.5">info@noorquranacademy.com</p>
-                      <p className="text-xs text-gold-400 font-bold mt-1">Replies within 4-6 hours</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center flex-shrink-0 mt-1">
-                      <FaWhatsapp />
-                    </div>
-                    <div>
-                      <h4 className="font-extrabold text-cream-50">Instant WhatsApp Chat</h4>
-                      <p className="text-xs sm:text-sm text-cream-100 mt-0.5">+1 (800) 555-7872</p>
-                      <p className="text-xs text-gold-400 font-bold mt-1">Available 24/7 for quick Q&A</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center flex-shrink-0 mt-1">
-                      <FiPhone />
-                    </div>
-                    <div>
-                      <h4 className="font-extrabold text-cream-50">Toll-Free Phone</h4>
-                      <p className="text-xs sm:text-sm text-cream-100 mt-0.5">+1 (800) 555-QURAN</p>
-                      <p className="text-xs text-gold-400 font-bold mt-1">Mon - Fri • 9am - 6pm EST</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center flex-shrink-0 mt-1">
                       <FiMapPin />
                     </div>
                     <div>
