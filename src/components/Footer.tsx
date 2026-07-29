@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import { FiMapPin, FiClock, FiCheckCircle } from "react-icons/fi";
 import { FaQuran } from "react-icons/fa";
 
 export default function Footer() {
@@ -89,20 +89,20 @@ export default function Footer() {
           {/* Contact Details */}
           <div>
             <h4 className="font-serif text-cream-50 font-bold text-lg mb-4 border-b border-gold-500/30 pb-2 inline-block">
-              Get in Touch
+              Academy Info
             </h4>
             <ul className="space-y-3 text-sm font-medium text-cream-100">
-              <li className="flex items-center gap-3">
-                <FiMail className="text-gold-400 w-4 h-4 flex-shrink-0" />
-                <span>hkmrkhan10@gmail.com</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <FiPhone className="text-gold-400 w-4 h-4 flex-shrink-0" />
-                <span>+92 (326) 0113711</span>
-              </li>
               <li className="flex items-start gap-3">
                 <FiMapPin className="text-gold-400 w-4 h-4 flex-shrink-0 mt-1" />
                 <span>Global Online Campus • Worldwide</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <FiClock className="text-gold-400 w-4 h-4 flex-shrink-0" />
+                <span>24/7 Flexible Timings</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <FiCheckCircle className="text-gold-400 w-4 h-4 flex-shrink-0" />
+                <span>1-on-1 Private Virtual Classroom</span>
               </li>
             </ul>
           </div>

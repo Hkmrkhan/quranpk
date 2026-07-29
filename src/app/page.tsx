@@ -469,25 +469,25 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
               <div className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
-                  5,000+
+                  500+
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Active Students</p>
               </div>
               <div className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
-                  120+
+                  15+
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Certified Native Scholars</p>
               </div>
               <div className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
-                  45+
+                  20+
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Countries Reached</p>
               </div>
               <div className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
-                  99.4%
+                  98.4%
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Student Satisfaction</p>
               </div>
