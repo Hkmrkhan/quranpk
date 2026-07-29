@@ -34,6 +34,8 @@ import {
 } from "react-icons/fi";
 import { FaQuran, FaStar, FaWhatsapp } from "react-icons/fa";
 
+import CounterNumber from "@/components/CounterNumber";
+
 // Exactly 3 Programs
 const sampleCourses: CourseProps[] = [
   {
@@ -491,25 +493,25 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
               <motion.div whileHover={{ scale: 1.08 }} className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
-                  500+
+                  <CounterNumber value={500} suffix="+" duration={2} />
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Active Students</p>
               </motion.div>
               <motion.div whileHover={{ scale: 1.08 }} className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
-                  15+
+                  <CounterNumber value={15} suffix="+" duration={2} />
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Certified Native Scholars</p>
               </motion.div>
               <motion.div whileHover={{ scale: 1.08 }} className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
-                  20+
+                  <CounterNumber value={20} suffix="+" duration={2} />
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Countries Reached</p>
               </motion.div>
               <motion.div whileHover={{ scale: 1.08 }} className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
-                  98.4%
+                  <CounterNumber value={98.4} decimals={1} suffix="%" duration={2} />
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Student Satisfaction</p>
               </motion.div>
