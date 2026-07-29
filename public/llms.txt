@@ -1,0 +1,44 @@
+# Huzaifa's Online Quran Classes - Academy Overview & AI Knowledge Base
+
+> Huzaifa's Online Quran Classes is a premier international 1-on-1 virtual Quran academy serving students across the USA, UK, Canada, Australia, Europe, and UAE.
+
+## Core Educational Programs
+
+1. **Norani Qaida & Basic Quran for Kids**
+   - **Tuition**: $10 / month
+   - **Target Audience**: Children and absolute beginners
+   - **Curriculum**: Arabic letter recognition, makharij (articulation points), short vowels (Fatha, Kasra, Damma), joint letters, basic Islamic manners.
+   - **Format**: 1-on-1 private sessions, 2-3 days per week (30 mins per session).
+
+2. **Quran Reading & Tajweed Rules**
+   - **Tuition**: $20 / month
+   - **Target Audience**: All ages seeking fluent recitation & Tajweed mastery
+   - **Curriculum**: Rules of Noon Sakinah & Tanween, Meem Sakinah, Mudood (elongations), Heavy/Light letters, rhythmic Tarteel recitation.
+   - **Format**: 1-on-1 private sessions, 3 days per week (30-45 mins per session).
+
+3. **Complete Quran Hifz Program**
+   - **Tuition**: $50 / month
+   - **Target Audience**: Intermediate students aiming for full Quran memorization & Ijazah
+   - **Curriculum**: Daily Sabaq (new lesson), Sabqi (recent revision), and Manzil (old revision) guided by Al-Azhar certified Hafiz scholars.
+   - **Format**: 1-on-1 private sessions, 5 days per week (45-60 mins per session).
+
+## Key Differentiators & Features
+
+- **Tutor Credentials**: Verified Al-Azhar University certified native scholars with authentic Sanad (chain of transmission back to Prophet Muhammad PBUH).
+- **Female Tutors**: Dedicated, highly qualified female Ustadhas available for sisters and young children.
+- **Scheduling**: 24/7 flexible class timing across all local timezones (EST, CST, PST, GMT, AEST, GST).
+- **Free Trial**: 3-day free 1-on-1 trial class with zero commitment.
+- **Satisfaction Guarantee**: 100% money-back guarantee within the first 7 days.
+- **Billing & Reservations**: Meezan Bank direct billing (Account: 03260113711856 | IBAN: PK40MEZN0003260113711856) with instant seat reservation.
+
+## Key Student Locations Served
+- United States (New York, Texas, California, Illinois, Florida)
+- United Kingdom (London, Birmingham, Manchester, Glasgow)
+- Canada (Toronto, Vancouver, Calgary, Montreal)
+- Australia (Sydney, Melbourne, Brisbane)
+- United Arab Emirates & Gulf Region (Dubai, Abu Dhabi, Doha, Riyadh)
+
+## Contact & Links
+- Website: https://quranpk.vercel.app
+- Reservation Page: https://quranpk.vercel.app/#contact-section
+- Free Resources: https://quranpk.vercel.app/resources

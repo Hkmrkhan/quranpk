@@ -1,9 +1,18 @@
-# Legitimate Search Engines Allowed
+# Allow Search Engines & AI Search Assistants (ChatGPT Search, Perplexity, Gemini)
 User-agent: *
 Allow: /
 Disallow: /api/
 
-# Block AI Scrapers, Marketing Crawlers & Fake Bots
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Block SEO Data Miners & Spam Scrapers
 User-agent: AhrefsBot
 Disallow: /
 
@@ -38,27 +47,6 @@ User-agent: LinkpadBot
 Disallow: /
 
 User-agent: Scrapy
-Disallow: /
-
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: Anthropic-AI
-Disallow: /
-
-User-agent: PerplexityBot
-Disallow: /
-
-User-agent: Google-Extended
 Disallow: /
 
 User-agent: Bytespider

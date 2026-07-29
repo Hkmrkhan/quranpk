@@ -1,8 +1,11 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  // Comprehensive list of marketing scrapers, AI crawlers, and aggressive bots to block
-  const badBots = [
+  // Allow search-focused AI crawlers so ChatGPT Search, Perplexity & Gemini can recommend the website
+  const allowedAISearchBots = ["OAI-SearchBot", "ChatGPT-User", "PerplexityBot"];
+
+  // Block spammy SEO tools and aggressive scrapers
+  const blockedSpamBots = [
     "AhrefsBot",
     "SemrushBot",
     "MJ12bot",
@@ -15,19 +18,10 @@ export default function robots(): MetadataRoute.Robots {
     "SerpstatBot",
     "LinkpadBot",
     "Scrapy",
-    "GPTBot",
-    "ChatGPT-User",
-    "CCBot",
-    "ClaudeBot",
-    "Anthropic-AI",
-    "PerplexityBot",
-    "Google-Extended",
     "Bytespider",
     "Baiduspider",
     "Sogou",
     "YandexBot",
-    "Exabot",
-    "SeznamBot",
   ];
 
   return {
@@ -37,7 +31,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/"],
       },
-      ...badBots.map((bot) => ({
+      ...allowedAISearchBots.map((bot) => ({
+        userAgent: bot,
+        allow: "/",
+      })),
+      ...blockedSpamBots.map((bot) => ({
         userAgent: bot,
         disallow: ["/"],
       })),
