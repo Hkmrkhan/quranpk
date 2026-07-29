@@ -417,11 +417,11 @@ export default function Home() {
                   <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-gold-400/30 to-sage-400/30 blur-xl opacity-70" />
                   <div className="relative rounded-3xl bg-cream-50 p-8 shadow-2xl border border-sage-300 space-y-6">
                     <div className="text-center space-y-2 border-b border-sage-200 pb-6">
-                      <div className="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-gold-400 shadow-lg relative bg-sage-950">
+                      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-gold-400 shadow-xl relative bg-sage-950 p-0.5">
                         <img
-                          src="/logo.jpg"
+                          src="/logo.png"
                           alt="Huzaifa's Online Quran Classes Seal"
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover rounded-full"
                         />
                       </div>
                       <h3 className="font-serif font-bold text-2xl text-sage-900">
