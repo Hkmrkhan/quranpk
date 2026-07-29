@@ -66,7 +66,7 @@ export async function POST(request: Request) {
               <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: #0B2413;">
                 <tr><td style="padding: 6px 0; font-weight: bold; width: 40%;">Full Name:</td><td>${name}</td></tr>
                 <tr><td style="padding: 6px 0; font-weight: bold;">Email Address:</td><td><a href="mailto:${email}" style="color: #12331C; font-weight: bold;">${email}</a></td></tr>
-                <tr><td style="padding: 6px 0; font-weight: bold;">Phone / WhatsApp:</td><td>${phone || "N/A"}</td></tr>
+                <tr><td style="padding: 6px 0; font-weight: bold;">Phone / Contact:</td><td>${phone || "N/A"}</td></tr>
                 <tr><td style="padding: 6px 0; font-weight: bold;">Reserved Program:</td><td style="color: #8A670D; font-weight: bold;">${course || "Not specified"}</td></tr>
                 <tr><td style="padding: 6px 0; font-weight: bold;">Payment Proof Attached:</td><td>${attachments.length > 0 ? "Yes (Attached)" : "No screenshot attached"}</td></tr>
               </table>
@@ -121,8 +121,7 @@ export async function POST(request: Request) {
             </div>
 
             <div style="text-align: center; color: #12331C; font-size: 13px; font-weight: bold;">
-              <p style="margin: 0;">If you have any questions, reach us on WhatsApp: +92 326 0113711</p>
-              <p style="margin: 4px 0 0 0; color: #8A670D;">Huzaifa's Online Quran Classes • Empowering Quranic Learning Worldwide</p>
+              <p style="margin: 0; color: #8A670D;">Huzaifa's Online Quran Classes • Empowering Quranic Learning Worldwide</p>
             </div>
           </div>
         `,
