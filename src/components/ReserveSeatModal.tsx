@@ -109,12 +109,12 @@ export default function ReserveSeatModal({
   };
 
   return (
-    <div className="fixed inset-0 z-[999] w-screen h-screen min-h-screen flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-sage-950/98 backdrop-blur-2xl animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl bg-cream-50 rounded-2xl sm:rounded-3xl shadow-2xl border border-sage-300 overflow-hidden flex flex-col my-auto max-h-[92vh] sm:max-h-[88vh]">
+    <div className="fixed inset-0 z-[999] w-screen h-screen min-h-screen flex items-center justify-center p-0 sm:p-4 md:p-6 overflow-y-auto bg-sage-950/98 backdrop-blur-2xl animate-in fade-in duration-200 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      <div className="relative w-full max-w-full sm:max-w-3xl md:max-w-4xl bg-cream-50 sm:rounded-3xl rounded-none shadow-2xl border border-sage-300 overflow-hidden flex flex-col my-auto max-h-screen sm:max-h-[92vh]">
         {/* Modal Header */}
-        <div className="bg-sage-900 text-cream-50 px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-sage-800 flex-shrink-0">
+        <div className="bg-sage-900 text-cream-50 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between border-b border-sage-800 flex-shrink-0">
           <div className="flex items-center gap-3">
-            <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full overflow-hidden border-2 border-gold-400 flex-shrink-0 bg-sage-950 p-0.5 shadow-md">
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-gold-400 flex-shrink-0 bg-sage-950 p-0.5 shadow-md">
               <img
                 src="/logo.png"
                 alt="Huzaifa's Online Quran Classes Logo"
@@ -140,10 +140,10 @@ export default function ReserveSeatModal({
           </button>
         </div>
 
-        {/* Modal Body with Container Scrolling */}
-        <div className="p-4 sm:p-6 overflow-y-auto space-y-4 font-sans">
+        {/* Modal Body with Hidden Scrollbar */}
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-4 font-sans [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {/* Meezan Bank Info Box */}
-          <div className="bg-sage-900 text-cream-50 rounded-xl p-4 border border-gold-500/40 space-y-3 shadow-sm">
+          <div className="bg-sage-900 text-cream-50 rounded-xl p-3.5 sm:p-4 border border-gold-500/40 space-y-2.5 shadow-sm">
             <div className="flex items-center gap-2 border-b border-sage-800 pb-2">
               <FaLandmark className="text-gold-400 text-sm flex-shrink-0" />
               <h3 className="font-serif font-bold text-xs sm:text-sm text-gold-400">
@@ -151,7 +151,7 @@ export default function ReserveSeatModal({
               </h3>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
               <div className="bg-sage-950/70 p-2.5 rounded-lg border border-sage-800">
                 <span className="text-sage-300 font-bold block uppercase text-[9px] tracking-wider">
                   Receiver Name
@@ -169,66 +169,44 @@ export default function ReserveSeatModal({
                   Meezan Bank
                 </span>
               </div>
-            </div>
 
-            {/* Full Unclipped Account Number */}
-            <div className="bg-sage-950/70 px-3 py-2 rounded-lg border border-sage-800 flex items-center justify-between gap-2">
-              <div>
-                <span className="text-sage-300 font-bold block uppercase text-[9px] tracking-wider">
-                  Account Number
-                </span>
-                <span className="text-gold-400 font-mono font-extrabold text-xs sm:text-sm block tracking-wider select-all">
-                  03260113711856
-                </span>
+              <div className="bg-sage-950/70 p-2.5 rounded-lg border border-sage-800 flex items-center justify-between col-span-2 md:col-span-1">
+                <div>
+                  <span className="text-sage-300 font-bold block uppercase text-[9px] tracking-wider">
+                    Account Number
+                  </span>
+                  <span className="text-gold-400 font-mono font-extrabold text-xs sm:text-sm block mt-0.5 select-all">
+                    03260113711856
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleCopy("03260113711856", "account")}
+                  className="p-1.5 rounded bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors"
+                  title="Copy Account Number"
+                >
+                  {copiedField === "account" ? <FiCheck className="w-3.5 h-3.5 text-green-400" /> : <FiCopy className="w-3.5 h-3.5" />}
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => handleCopy("03260113711856", "account")}
-                className="px-2.5 py-1.5 rounded bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors flex items-center gap-1 text-[11px] font-bold flex-shrink-0"
-                title="Copy Account Number"
-              >
-                {copiedField === "account" ? (
-                  <>
-                    <FiCheck className="w-3.5 h-3.5 text-green-400" />
-                    <span className="text-green-400">Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <FiCopy className="w-3.5 h-3.5" />
-                    <span>Copy</span>
-                  </>
-                )}
-              </button>
-            </div>
 
-            {/* Full Unclipped IBAN */}
-            <div className="bg-sage-950/70 px-3 py-2 rounded-lg border border-sage-800 flex items-center justify-between gap-2">
-              <div className="min-w-0 flex-1">
-                <span className="text-sage-300 font-bold block uppercase text-[9px] tracking-wider">
-                  IBAN Number
-                </span>
-                <span className="text-gold-400 font-mono font-extrabold text-[11px] sm:text-xs md:text-sm block tracking-tight select-all break-all whitespace-normal">
-                  PK40MEZN0003260113711856
-                </span>
+              <div className="bg-sage-950/70 p-2.5 rounded-lg border border-sage-800 flex items-center justify-between col-span-2 md:col-span-1">
+                <div className="min-w-0 flex-1">
+                  <span className="text-sage-300 font-bold block uppercase text-[9px] tracking-wider">
+                    IBAN
+                  </span>
+                  <span className="text-gold-400 font-mono font-extrabold text-[11px] sm:text-xs block mt-0.5 select-all break-all">
+                    PK40MEZN0003260113711856
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleCopy("PK40MEZN0003260113711856", "iban")}
+                  className="p-1.5 rounded bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors flex-shrink-0"
+                  title="Copy IBAN"
+                >
+                  {copiedField === "iban" ? <FiCheck className="w-3.5 h-3.5 text-green-400" /> : <FiCopy className="w-3.5 h-3.5" />}
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => handleCopy("PK40MEZN0003260113711856", "iban")}
-                className="px-2.5 py-1.5 rounded bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors flex items-center gap-1 text-[11px] font-bold flex-shrink-0"
-                title="Copy IBAN"
-              >
-                {copiedField === "iban" ? (
-                  <>
-                    <FiCheck className="w-3.5 h-3.5 text-green-400" />
-                    <span className="text-green-400">Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <FiCopy className="w-3.5 h-3.5" />
-                    <span>Copy IBAN</span>
-                  </>
-                )}
-              </button>
             </div>
           </div>
 
@@ -254,8 +232,8 @@ export default function ReserveSeatModal({
           )}
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-3.5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-[10px] font-extrabold uppercase tracking-wider text-sage-900 mb-1">
                   Full Name *
@@ -267,7 +245,7 @@ export default function ReserveSeatModal({
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="e.g. Huzaifa Khan"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-sage-300 text-xs font-bold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
+                  className="w-full px-3 py-2 rounded-lg bg-cream-100 border border-sage-300 text-xs font-bold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
                 />
               </div>
 
@@ -282,12 +260,12 @@ export default function ReserveSeatModal({
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="huzaifa@example.com"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-sage-300 text-xs font-bold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
+                  className="w-full px-3 py-2 rounded-lg bg-cream-100 border border-sage-300 text-xs font-bold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-[10px] font-extrabold uppercase tracking-wider text-sage-900 mb-1">
                   WhatsApp / Phone Number *
@@ -299,7 +277,7 @@ export default function ReserveSeatModal({
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+92 326 0113711"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-sage-300 text-xs font-bold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
+                  className="w-full px-3 py-2 rounded-lg bg-cream-100 border border-sage-300 text-xs font-bold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
                 />
               </div>
 
@@ -311,7 +289,7 @@ export default function ReserveSeatModal({
                   name="course"
                   value={formData.course}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-sage-300 text-xs font-extrabold text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-700"
+                  className="w-full px-3 py-2 rounded-lg bg-cream-100 border border-sage-300 text-xs font-extrabold text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-700"
                 >
                   <option value="Norani Qaida & Basic Quran for Kids ($10/mo)">
                     Norani Qaida & Basic Quran ($10/mo)
@@ -331,7 +309,7 @@ export default function ReserveSeatModal({
               <label className="block text-[10px] font-extrabold uppercase tracking-wider text-sage-900 mb-1">
                 Upload Payment Screenshot / Receipt Proof
               </label>
-              <div className="relative border border-dashed border-sage-300 rounded-xl p-3 bg-cream-100 hover:bg-sage-50 transition-colors text-center cursor-pointer">
+              <div className="relative border border-dashed border-sage-300 rounded-lg p-2.5 bg-cream-100 hover:bg-sage-50 transition-colors text-center cursor-pointer">
                 <input
                   type="file"
                   accept="image/*,.pdf"
@@ -339,7 +317,7 @@ export default function ReserveSeatModal({
                   className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
                 />
                 <div className="flex items-center justify-center gap-2">
-                  <FiUploadCloud className="text-gold-600 w-5 h-5 flex-shrink-0" />
+                  <FiUploadCloud className="text-gold-600 w-4 h-4 flex-shrink-0" />
                   {fileName ? (
                     <span className="text-xs font-extrabold text-sage-900 flex items-center gap-1 truncate">
                       <FiFileText /> {fileName}
@@ -363,14 +341,14 @@ export default function ReserveSeatModal({
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Let us know your preferred study days or timezone..."
-                className="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-sage-300 text-xs font-semibold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
+                className="w-full px-3 py-2 rounded-lg bg-cream-100 border border-sage-300 text-xs font-semibold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
               />
             </div>
 
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 border border-sage-600 disabled:opacity-50"
+              className="w-full py-3 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 border border-sage-600 disabled:opacity-50"
             >
               <FiSend className="w-4 h-4 text-gold-400" />
               <span>{status === "loading" ? "Submitting..." : "Submit & Reserve Seat"}</span>
