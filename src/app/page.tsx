@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import CourseCard, { CourseProps } from "@/components/CourseCard";
 import PricingCard, { PricingPlan } from "@/components/PricingCard";
@@ -342,7 +343,12 @@ export default function Home() {
 
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center pt-28 pb-16 bg-islamic-pattern">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-sage-200/30 rounded-full blur-3xl pointer-events-none" />
+        {/* Floating Glowing Particle Ambient Orbs */}
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-sage-300/30 rounded-full blur-3xl pointer-events-none"
+        />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -350,7 +356,7 @@ export default function Home() {
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <ScrollReveal direction="down" delay={0.1}>
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest bg-sage-100 text-sage-900 border border-sage-300 shadow-xs">
-                  <FaQuran className="text-gold-600" />
+                  <FaQuran className="text-gold-600 animate-bounce" />
                   Serene & Authentic Online Learning
                 </span>
               </ScrollReveal>
@@ -369,26 +375,30 @@ export default function Home() {
                   بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
                 </p>
                 <p className="text-sage-900 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                  Join thousands of students worldwide learning Norani Qaida, Quran reading, Tajweed mastery, and Hifz with certified native Arab tutors in a tranquil, 1-on-1 online environment.
+                  Join hundreds of students worldwide learning Norani Qaida, Quran reading, Tajweed mastery, and Hifz with certified native Arab tutors in a tranquil, 1-on-1 online environment.
                 </p>
               </ScrollReveal>
 
               <ScrollReveal direction="up" delay={0.4}>
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.04, y: -2 }}
+                    whileTap={{ scale: 0.96 }}
                     onClick={() => openModal()}
-                    className="w-full sm:w-auto px-8 py-4 rounded-full bg-sage-700 text-cream-50 font-extrabold text-base hover:bg-sage-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 border border-sage-600"
+                    className="w-full sm:w-auto px-8 py-4 rounded-full bg-sage-700 text-cream-50 font-extrabold text-base hover:bg-sage-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 border border-sage-600"
                   >
                     <FiBookmark className="w-5 h-5 text-gold-400" />
                     <span>Reserve Seat Now</span>
-                  </button>
+                  </motion.button>
 
-                  <a
+                  <motion.a
+                    whileHover={{ scale: 1.04, y: -2 }}
+                    whileTap={{ scale: 0.96 }}
                     href="#courses-section"
                     className="w-full sm:w-auto px-8 py-4 rounded-full bg-cream-50 text-sage-900 font-extrabold text-base hover:bg-sage-100 transition-all duration-300 shadow-sm border border-sage-300 flex items-center justify-center gap-2"
                   >
                     <span>Explore Programs</span>
-                  </a>
+                  </motion.a>
                 </div>
               </ScrollReveal>
 
@@ -410,20 +420,27 @@ export default function Home() {
               </ScrollReveal>
             </div>
 
-            {/* Right Card / Visual */}
+            {/* Right Card / 3D Seal */}
             <div className="lg:col-span-5">
               <ScrollReveal direction="left" delay={0.3}>
-                <div className="relative mx-auto max-w-md">
-                  <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-gold-400/30 to-sage-400/30 blur-xl opacity-70" />
+                <motion.div
+                  whileHover={{ y: -6, rotateY: 3 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                  className="relative mx-auto max-w-md"
+                >
+                  <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-gold-400/30 to-sage-400/30 blur-xl opacity-70 animate-pulse" />
                   <div className="relative rounded-3xl bg-cream-50 p-8 shadow-2xl border border-sage-300 space-y-6">
-                    <div className="text-center space-y-2 border-b border-sage-200 pb-6">
-                      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-gold-400 shadow-xl relative bg-sage-950 p-0.5">
+                    <div className="text-center space-y-3 border-b border-sage-200 pb-6">
+                      <motion.div
+                        whileHover={{ scale: 1.08, rotate: 3 }}
+                        className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-gold-400 shadow-xl relative bg-sage-950 p-0.5 cursor-pointer"
+                      >
                         <img
                           src="/logo.png"
                           alt="Huzaifa's Online Quran Classes Seal"
                           className="w-full h-full object-cover rounded-full"
                         />
-                      </div>
+                      </motion.div>
                       <h3 className="font-serif font-bold text-2xl text-sage-900">
                         Reserve Your Seat
                       </h3>
@@ -447,15 +464,17 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
                       onClick={() => openModal()}
                       className="w-full text-center py-3.5 rounded-full bg-gold-400 text-sage-900 font-extrabold text-sm hover:bg-gold-300 transition-colors shadow-md flex items-center justify-center gap-2"
                     >
                       <FiBookmark />
                       <span>Reserve Seat Now</span>
-                    </button>
+                    </motion.button>
                   </div>
-                </div>
+                </motion.div>
               </ScrollReveal>
             </div>
           </div>
@@ -464,46 +483,51 @@ export default function Home() {
 
       {/* 2. STATS BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <ScrollReveal direction="up">
-          <div className="bg-sage-900 rounded-3xl p-8 sm:p-12 text-cream-50 shadow-xl border border-sage-800 relative overflow-hidden">
+        <ScrollReveal direction="zoom">
+          <motion.div
+            whileHover={{ scale: 1.01 }}
+            className="bg-sage-900 rounded-3xl p-8 sm:p-12 text-cream-50 shadow-xl border border-sage-800 relative overflow-hidden"
+          >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
-              <div className="space-y-1">
+              <motion.div whileHover={{ scale: 1.08 }} className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
                   500+
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Active Students</p>
-              </div>
-              <div className="space-y-1">
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.08 }} className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
                   15+
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Certified Native Scholars</p>
-              </div>
-              <div className="space-y-1">
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.08 }} className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
                   20+
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Countries Reached</p>
-              </div>
-              <div className="space-y-1">
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.08 }} className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
                   98.4%
                 </p>
                 <p className="text-xs sm:text-sm text-cream-50 font-bold">Student Satisfaction</p>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </ScrollReveal>
 
         {/* Section Action Button */}
         <div className="text-center">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => openModal()}
             className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
           >
             <FiBookmark className="text-gold-400" />
             <span>Reserve Seat Now</span>
-          </button>
+          </motion.button>
         </div>
       </section>
 
@@ -517,7 +541,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {sampleCourses.map((course, idx) => (
-            <ScrollReveal key={course.id} direction="up" delay={idx * 0.1}>
+            <ScrollReveal key={course.id} direction="up" delay={idx * 0.12}>
               <CourseCard course={course} />
             </ScrollReveal>
           ))}
@@ -525,13 +549,15 @@ export default function Home() {
 
         {/* Section Action Button */}
         <div className="text-center pt-4">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => openModal()}
             className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
           >
             <FiBookmark className="text-gold-400" />
             <span>Reserve Program Seat</span>
-          </button>
+          </motion.button>
         </div>
       </section>
 
@@ -548,18 +574,23 @@ export default function Home() {
             {whyChooseUs.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-                  <div className="bg-cream-50 rounded-2xl p-8 border border-sage-300 shadow-xs hover:shadow-lg transition-all duration-300 group">
-                    <div className="w-12 h-12 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center text-2xl mb-6 group-hover:bg-sage-700 group-hover:text-gold-400 transition-colors">
-                      <Icon />
+                <ScrollReveal key={idx} direction="zoom" delay={idx * 0.08}>
+                  <motion.div
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    className="bg-cream-50 rounded-2xl p-8 border border-sage-300 shadow-xs hover:shadow-lg transition-all duration-300 group h-full flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="w-12 h-12 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center text-2xl mb-6 group-hover:bg-sage-700 group-hover:text-gold-400 transition-colors">
+                        <Icon />
+                      </div>
+                      <h3 className="font-serif font-bold text-xl text-sage-900 mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-sage-900 font-medium text-sm sm:text-base leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
-                    <h3 className="font-serif font-bold text-xl text-sage-900 mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-sage-900 font-medium text-sm sm:text-base leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+                  </motion.div>
                 </ScrollReveal>
               );
             })}
@@ -567,13 +598,15 @@ export default function Home() {
 
           {/* Section Action Button */}
           <div className="text-center pt-4">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => openModal()}
               className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
             >
               <FiBookmark className="text-gold-400" />
               <span>Reserve Seat Now</span>
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>
@@ -586,47 +619,58 @@ export default function Home() {
           subtitle="Listen to serene recitations from world-renowned master Qaris to refine your Tajweed ear and nourish your soul."
         />
 
-        {/* Sticky Player Card */}
-        <div className="bg-gradient-to-r from-sage-800 to-sage-900 rounded-3xl p-6 sm:p-8 text-cream-50 shadow-2xl border border-sage-700 flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-          <div className="flex items-center gap-4 w-full md:w-auto">
-            <div className="w-14 h-14 rounded-2xl bg-gold-500/20 border border-gold-400/40 text-gold-400 flex items-center justify-center text-2xl flex-shrink-0">
-              <FaQuran />
+        {/* Sticky Animated Player Card */}
+        <ScrollReveal direction="zoom">
+          <div className="bg-gradient-to-r from-sage-800 to-sage-900 rounded-3xl p-6 sm:p-8 text-cream-50 shadow-2xl border border-sage-700 flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+            <div className="flex items-center gap-4 w-full md:w-auto">
+              <div className="w-14 h-14 rounded-2xl bg-gold-500/20 border border-gold-400/40 text-gold-400 flex items-center justify-center text-2xl flex-shrink-0">
+                <FaQuran className="animate-pulse" />
+              </div>
+              <div>
+                <span className="text-xs text-gold-400 font-extrabold tracking-wider uppercase block">
+                  {playingId ? "Currently Playing" : "Select a Surah"}
+                </span>
+                <h3 className="font-serif font-bold text-lg sm:text-xl text-cream-50">
+                  {currentTrack.surahName}
+                </h3>
+                <p className="text-xs sm:text-sm text-sage-100 font-medium">
+                  {currentTrack.reciter} • {currentTrack.style}
+                </p>
+              </div>
             </div>
-            <div>
-              <span className="text-xs text-gold-400 font-extrabold tracking-wider uppercase block">
-                {playingId ? "Currently Playing" : "Select a Surah"}
-              </span>
-              <h3 className="font-serif font-bold text-lg sm:text-xl text-cream-50">
-                {currentTrack.surahName}
-              </h3>
-              <p className="text-xs sm:text-sm text-sage-100 font-medium">
-                {currentTrack.reciter} • {currentTrack.style}
-              </p>
+
+            {/* Live Equalizer Waveform Bars */}
+            <div className="flex items-center gap-1.5 h-10 px-4">
+              {[45, 75, 35, 95, 55, 85, 45, 100, 65, 35, 85, 55, 90, 40].map((h, i) => (
+                <motion.div
+                  key={i}
+                  animate={{
+                    height: playingId ? [`${h * 0.3}%`, `${h}%`, `${h * 0.4}%`] : "25%",
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: i * 0.05,
+                  }}
+                  className="w-1.5 bg-gold-400 rounded-full"
+                />
+              ))}
+            </div>
+
+            <div className="flex items-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setPlayingId(playingId ? null : currentTrack.id)}
+                className="w-12 h-12 rounded-full bg-gold-400 text-sage-900 flex items-center justify-center text-xl font-extrabold shadow-md hover:bg-gold-300 transition-transform"
+              >
+                {playingId ? <FiPause /> : <FiPlay className="ml-0.5" />}
+              </motion.button>
+              <span className="text-xs text-gold-300 font-mono font-bold">{currentTrack.duration}</span>
             </div>
           </div>
-
-          <div className="flex items-center gap-1 h-8">
-            {[40, 70, 30, 90, 50, 80, 40, 100, 60, 30, 80, 50].map((h, i) => (
-              <div
-                key={i}
-                className={`w-1 bg-gold-400 rounded-full transition-all duration-300 ${
-                  playingId ? "animate-pulse" : "opacity-40"
-                }`}
-                style={{ height: playingId ? `${h}%` : "20%" }}
-              />
-            ))}
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setPlayingId(playingId ? null : currentTrack.id)}
-              className="w-12 h-12 rounded-full bg-gold-400 text-sage-900 flex items-center justify-center text-xl font-extrabold shadow-md hover:bg-gold-300 transition-transform active:scale-95"
-            >
-              {playingId ? <FiPause /> : <FiPlay className="ml-0.5" />}
-            </button>
-            <span className="text-xs text-gold-300 font-mono font-bold">{currentTrack.duration}</span>
-          </div>
-        </div>
+        </ScrollReveal>
 
         {/* Surah Track List */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -634,7 +678,8 @@ export default function Home() {
             const isSelected = playingId === track.id;
             return (
               <ScrollReveal key={track.id} direction="up" delay={idx * 0.08}>
-                <div
+                <motion.div
+                  whileHover={{ y: -4 }}
                   className={`p-6 rounded-2xl border transition-all duration-300 flex items-center justify-between gap-4 ${
                     isSelected
                       ? "bg-cream-50 border-gold-500 shadow-md ring-1 ring-gold-400/40"
@@ -675,7 +720,7 @@ export default function Home() {
                       {track.duration}
                     </span>
                   </div>
-                </div>
+                </motion.div>
               </ScrollReveal>
             );
           })}
@@ -683,13 +728,15 @@ export default function Home() {
 
         {/* Section Action Button */}
         <div className="text-center pt-4">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => openModal()}
             className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
           >
             <FiBookmark className="text-gold-400" />
             <span>Reserve Seat Now</span>
-          </button>
+          </motion.button>
         </div>
       </section>
 
@@ -705,7 +752,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {downloadableResources.map((res, idx) => (
               <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-                <div className="bg-cream-50 rounded-2xl p-8 border border-sage-300 shadow-xs hover:shadow-md transition-all flex flex-col justify-between h-full">
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="bg-cream-50 rounded-2xl p-8 border border-sage-300 shadow-xs hover:shadow-md transition-all flex flex-col justify-between h-full"
+                >
                   <div>
                     <div className="flex items-center justify-between gap-4 mb-4">
                       <span className="px-3 py-1 rounded-md text-xs font-extrabold uppercase tracking-wider bg-sage-100 text-sage-900 border border-sage-300">
@@ -735,25 +785,27 @@ export default function Home() {
                       <span>Download</span>
                     </button>
                   </div>
-                </div>
+                </motion.div>
               </ScrollReveal>
             ))}
           </div>
 
           {/* Section Action Button */}
           <div className="text-center pt-4">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => openModal()}
               className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
             >
               <FiBookmark className="text-gold-400" />
               <span>Reserve Seat Now</span>
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>
 
-      {/* 7. PRICING SECTION (EXACTLY $10, $20, $50 USD) */}
+      {/* 7. PRICING SECTION */}
       <section id="pricing-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28 space-y-12">
         <SectionHeading
           badge="Affordable Monthly Plans"
@@ -770,10 +822,10 @@ export default function Home() {
         </div>
 
         {/* Guarantee Banner */}
-        <ScrollReveal direction="up">
+        <ScrollReveal direction="zoom">
           <div className="bg-cream-50 p-8 rounded-3xl border border-gold-500 shadow-md flex flex-col md:flex-row items-center gap-6 text-center md:text-left max-w-4xl mx-auto">
             <div className="w-16 h-16 rounded-full bg-gold-400/20 text-gold-600 border border-gold-400/40 flex items-center justify-center text-3xl flex-shrink-0">
-              <FiShield />
+              <FiShield className="animate-pulse" />
             </div>
             <div className="space-y-1">
               <h3 className="font-serif font-bold text-xl text-sage-900">
@@ -834,13 +886,15 @@ export default function Home() {
 
         {/* Section Action Button */}
         <div className="text-center pt-4">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => openModal()}
             className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
           >
             <FiBookmark className="text-gold-400" />
             <span>Reserve Seat Now</span>
-          </button>
+          </motion.button>
         </div>
       </section>
 
@@ -854,7 +908,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="bg-cream-50 p-8 rounded-2xl border border-sage-300 shadow-xs space-y-4">
+            <motion.div whileHover={{ y: -6 }} className="bg-cream-50 p-8 rounded-2xl border border-sage-300 shadow-xs space-y-4">
               <div className="flex text-gold-500 gap-1 text-sm">
                 {[...Array(5)].map((_, i) => (
                   <FaStar key={i} />
@@ -872,18 +926,18 @@ export default function Home() {
                   Norani Qaida
                 </span>
               </div>
-            </div>
+            </motion.div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <div className="bg-cream-50 p-8 rounded-2xl border border-sage-300 shadow-xs space-y-4">
+            <motion.div whileHover={{ y: -6 }} className="bg-cream-50 p-8 rounded-2xl border border-sage-300 shadow-xs space-y-4">
               <div className="flex text-gold-500 gap-1 text-sm">
                 {[...Array(5)].map((_, i) => (
                   <FaStar key={i} />
                 ))}
               </div>
               <p className="text-sage-900 font-medium text-sm leading-relaxed italic">
-                &ldquo;As a working professional in New York, finding a tutor who fits my late evening schedule was impossible until I found Noor Quran Academy. 100% recommended!&rdquo;
+                &ldquo;As a working professional in New York, finding a tutor who fits my late evening schedule was impossible until I found Huzaifa's Online Quran Classes. 100% recommended!&rdquo;
               </p>
               <div className="pt-4 border-t border-sage-200 flex items-center justify-between">
                 <div>
@@ -894,11 +948,11 @@ export default function Home() {
                   Tajweed Master
                 </span>
               </div>
-            </div>
+            </motion.div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <div className="bg-cream-50 p-8 rounded-2xl border border-sage-300 shadow-xs space-y-4">
+            <motion.div whileHover={{ y: -6 }} className="bg-cream-50 p-8 rounded-2xl border border-sage-300 shadow-xs space-y-4">
               <div className="flex text-gold-500 gap-1 text-sm">
                 {[...Array(5)].map((_, i) => (
                   <FaStar key={i} />
@@ -916,7 +970,7 @@ export default function Home() {
                   Hifz Program
                 </span>
               </div>
-            </div>
+            </motion.div>
           </ScrollReveal>
         </div>
       </section>
@@ -933,7 +987,10 @@ export default function Home() {
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
               <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-                <div className="bg-cream-50 p-6 rounded-2xl border border-sage-300 shadow-xs space-y-2">
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  className="bg-cream-50 p-6 rounded-2xl border border-sage-300 shadow-xs space-y-2"
+                >
                   <h4 className="font-serif font-bold text-lg text-sage-900 flex items-center gap-2">
                     <FiHelpCircle className="text-gold-600 flex-shrink-0" />
                     {faq.q}
@@ -941,20 +998,22 @@ export default function Home() {
                   <p className="text-sage-900 font-medium text-sm sm:text-base leading-relaxed pl-6">
                     {faq.a}
                   </p>
-                </div>
+                </motion.div>
               </ScrollReveal>
             ))}
           </div>
 
           {/* Section Action Button */}
           <div className="text-center pt-4">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => openModal()}
               className="px-8 py-3.5 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm hover:bg-sage-800 transition-all shadow-md inline-flex items-center gap-2"
             >
               <FiBookmark className="text-gold-400" />
               <span>Reserve Seat Now</span>
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>
@@ -1085,14 +1144,16 @@ export default function Home() {
                     />
                   </div>
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={status === "loading"}
                     className="w-full py-4 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm sm:text-base hover:bg-sage-800 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 border border-sage-600 disabled:opacity-50"
                   >
                     <FiSend className="w-4 h-4 text-gold-400" />
                     <span>{status === "loading" ? "Submitting..." : "Submit Trial Request"}</span>
-                  </button>
+                  </motion.button>
                 </form>
               </div>
             </ScrollReveal>

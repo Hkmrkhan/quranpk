@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+
+import { motion } from "framer-motion";
 import { FiCheck, FiStar } from "react-icons/fi";
 
 export interface PricingPlan {
@@ -14,10 +16,13 @@ export interface PricingPlan {
 
 export default function PricingCard({ plan }: { plan: PricingPlan }) {
   return (
-    <div
-      className={`relative rounded-3xl p-8 transition-all duration-500 flex flex-col justify-between ${
+    <motion.div
+      whileHover={{ y: -8, scale: plan.popular ? 1.06 : 1.03 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+      className={`relative rounded-3xl p-8 transition-all duration-300 flex flex-col justify-between ${
         plan.popular
-          ? "bg-sage-900 text-cream-50 shadow-2xl scale-105 border-2 border-gold-400 z-10"
+          ? "bg-sage-900 text-cream-50 shadow-2xl scale-105 border-2 border-gold-400 z-10 ring-2 ring-gold-400/30"
           : "bg-cream-50 text-sage-900 shadow-sm hover:shadow-xl border border-sage-300"
       }`}
     >
@@ -120,6 +125,6 @@ export default function PricingCard({ plan }: { plan: PricingPlan }) {
           Cancel anytime. Satisfaction guaranteed.
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
