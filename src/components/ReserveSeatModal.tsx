@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { FiX, FiCheckCircle, FiAlertCircle, FiSend, FiCopy, FiCheck, FiUploadCloud, FiFileText } from "react-icons/fi";
-import { FaLandmark, FaQuran } from "react-icons/fa";
+import { FaLandmark } from "react-icons/fa";
 
 interface ReserveSeatModalProps {
   isOpen: boolean;
@@ -97,12 +97,12 @@ export default function ReserveSeatModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-sage-950/80 backdrop-blur-md animate-in fade-in duration-300">
-      <div className="relative w-full max-w-2xl bg-cream-50 rounded-3xl shadow-2xl border border-sage-300 overflow-hidden max-h-[92vh] flex flex-col my-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto bg-sage-950/85 backdrop-blur-md animate-in fade-in duration-300">
+      <div className="relative w-full max-w-2xl bg-cream-50 rounded-2xl sm:rounded-3xl shadow-2xl border border-sage-300 overflow-hidden max-h-[95vh] sm:max-h-[90vh] flex flex-col my-auto">
         {/* Modal Header */}
-        <div className="bg-sage-900 text-cream-50 p-5 sm:p-7 relative flex items-center justify-between border-b border-sage-800">
+        <div className="bg-sage-900 text-cream-50 p-4 sm:p-6 relative flex items-center justify-between border-b border-sage-800 flex-shrink-0">
           <div className="flex items-center gap-3">
-            <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-gold-400 flex-shrink-0 bg-sage-950 p-0.5 shadow-md">
+            <div className="relative w-11 h-11 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-gold-400 flex-shrink-0 bg-sage-950 p-0.5 shadow-md">
               <img
                 src="/logo.png"
                 alt="Huzaifa's Online Quran Classes Logo"
@@ -113,7 +113,7 @@ export default function ReserveSeatModal({
               <span className="text-[10px] sm:text-xs font-extrabold text-gold-400 uppercase tracking-widest block">
                 Huzaifa's Online Quran Classes
               </span>
-              <h2 className="font-serif font-bold text-xl sm:text-2xl text-cream-50">
+              <h2 className="font-serif font-bold text-lg sm:text-2xl text-cream-50">
                 Reserve Your Quran Seat
               </h2>
             </div>
@@ -121,7 +121,7 @@ export default function ReserveSeatModal({
 
           <button
             onClick={onClose}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sage-800 text-cream-100 flex items-center justify-center hover:bg-sage-700 hover:text-gold-400 transition-colors"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sage-800 text-cream-100 flex items-center justify-center hover:bg-sage-700 hover:text-gold-400 transition-colors flex-shrink-0"
             aria-label="Close modal"
           >
             <FiX className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -129,18 +129,18 @@ export default function ReserveSeatModal({
         </div>
 
         {/* Modal Body */}
-        <div className="p-5 sm:p-8 overflow-y-auto space-y-5">
+        <div className="p-4 sm:p-6 md:p-8 overflow-y-auto space-y-5">
           {/* Billing Info Box */}
-          <div className="bg-sage-900 text-cream-50 rounded-2xl p-5 border border-gold-500/40 space-y-4 shadow-md">
+          <div className="bg-sage-900 text-cream-50 rounded-2xl p-4 sm:p-6 border border-gold-500/40 space-y-4 shadow-md">
             <div className="flex items-center gap-2 border-b border-sage-800 pb-3">
-              <FaLandmark className="text-gold-400 text-lg sm:text-xl" />
-              <h3 className="font-serif font-bold text-base sm:text-lg text-gold-400">
+              <FaLandmark className="text-gold-400 text-base sm:text-xl flex-shrink-0" />
+              <h3 className="font-serif font-bold text-sm sm:text-lg text-gold-400">
                 Meezan Bank Account Details
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
-              <div className="bg-sage-950/60 p-3 sm:p-3.5 rounded-xl border border-sage-800">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div className="bg-sage-950/70 p-3.5 rounded-xl border border-sage-800">
                 <span className="text-sage-300 font-bold block uppercase text-[10px] tracking-wider">
                   Receiver Name
                 </span>
@@ -149,7 +149,7 @@ export default function ReserveSeatModal({
                 </span>
               </div>
 
-              <div className="bg-sage-950/60 p-3 sm:p-3.5 rounded-xl border border-sage-800">
+              <div className="bg-sage-950/70 p-3.5 rounded-xl border border-sage-800">
                 <span className="text-sage-300 font-bold block uppercase text-[10px] tracking-wider">
                   Bank Name
                 </span>
@@ -157,44 +157,66 @@ export default function ReserveSeatModal({
                   Meezan Bank
                 </span>
               </div>
+            </div>
 
-              <div className="bg-sage-950/60 p-3 sm:p-3.5 rounded-xl border border-sage-800 flex items-center justify-between">
-                <div>
-                  <span className="text-sage-300 font-bold block uppercase text-[10px] tracking-wider">
-                    Account Number
-                  </span>
-                  <span className="text-gold-400 font-mono font-extrabold text-sm sm:text-base block mt-0.5">
-                    03260113711856
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => handleCopy("03260113711856", "account")}
-                  className="p-2 rounded-lg bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors"
-                  title="Copy Account Number"
-                >
-                  {copiedField === "account" ? <FiCheck className="w-4 h-4 text-green-400" /> : <FiCopy className="w-4 h-4" />}
-                </button>
+            {/* Full Unclipped Account Number */}
+            <div className="bg-sage-950/70 p-3.5 rounded-xl border border-sage-800 flex items-center justify-between gap-3">
+              <div>
+                <span className="text-sage-300 font-bold block uppercase text-[10px] tracking-wider">
+                  Account Number
+                </span>
+                <span className="text-gold-400 font-mono font-extrabold text-sm sm:text-base block mt-0.5 tracking-wider select-all">
+                  03260113711856
+                </span>
               </div>
+              <button
+                type="button"
+                onClick={() => handleCopy("03260113711856", "account")}
+                className="px-3 py-2 rounded-lg bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors flex items-center gap-1.5 text-xs font-bold flex-shrink-0"
+                title="Copy Account Number"
+              >
+                {copiedField === "account" ? (
+                  <>
+                    <FiCheck className="w-4 h-4 text-green-400" />
+                    <span className="text-green-400">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <FiCopy className="w-4 h-4" />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
+            </div>
 
-              <div className="bg-sage-950/60 p-3 sm:p-3.5 rounded-xl border border-sage-800 flex items-center justify-between">
-                <div className="overflow-hidden">
-                  <span className="text-sage-300 font-bold block uppercase text-[10px] tracking-wider">
-                    IBAN
-                  </span>
-                  <span className="text-gold-400 font-mono font-extrabold text-xs sm:text-sm block mt-0.5 truncate max-w-[140px] sm:max-w-[180px]">
-                    PK40MEZN0003260113711856
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => handleCopy("PK40MEZN0003260113711856", "iban")}
-                  className="p-2 rounded-lg bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors flex-shrink-0"
-                  title="Copy IBAN"
-                >
-                  {copiedField === "iban" ? <FiCheck className="w-4 h-4 text-green-400" /> : <FiCopy className="w-4 h-4" />}
-                </button>
+            {/* Full Unclipped IBAN */}
+            <div className="bg-sage-950/70 p-3.5 rounded-xl border border-sage-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="min-w-0 flex-1">
+                <span className="text-sage-300 font-bold block uppercase text-[10px] tracking-wider">
+                  IBAN Number
+                </span>
+                <span className="text-gold-400 font-mono font-extrabold text-xs sm:text-sm md:text-base block mt-1 tracking-tight select-all break-all whitespace-normal">
+                  PK40MEZN0003260113711856
+                </span>
               </div>
+              <button
+                type="button"
+                onClick={() => handleCopy("PK40MEZN0003260113711856", "iban")}
+                className="px-3 py-2 rounded-lg bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors flex items-center gap-1.5 text-xs font-bold flex-shrink-0 self-start sm:self-center"
+                title="Copy IBAN"
+              >
+                {copiedField === "iban" ? (
+                  <>
+                    <FiCheck className="w-4 h-4 text-green-400" />
+                    <span className="text-green-400">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <FiCopy className="w-4 h-4" />
+                    <span>Copy IBAN</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
 
