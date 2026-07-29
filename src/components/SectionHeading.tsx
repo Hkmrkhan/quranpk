@@ -17,21 +17,21 @@ export default function SectionHeading({
   return (
     <ScrollReveal direction="up" className={`mb-12 ${centered ? "text-center" : ""}`}>
       {badge && (
-        <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-sage-100 text-sage-800 border border-sage-200/60 mb-3 shadow-xs">
-          <FaStar className="w-2.5 h-2.5 text-gold-500" />
+        <span className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-sage-100 text-sage-900 border border-sage-300 mb-3 shadow-xs">
+          <FaStar className="w-2.5 h-2.5 text-gold-600" />
           {badge}
         </span>
       )}
-      <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-sage-900 tracking-tight leading-tight">
+      <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-sage-900 tracking-tight leading-tight">
         {title}
       </h2>
       <div className={`flex items-center gap-3 my-4 ${centered ? "justify-center" : ""}`}>
-        <div className="h-[1px] w-12 bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
-        <FaStar className="text-gold-500 w-3 h-3" />
-        <div className="h-[1px] w-12 bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
+        <div className="h-[2px] w-14 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
+        <FaStar className="text-gold-600 w-3.5 h-3.5" />
+        <div className="h-[2px] w-14 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
       </div>
       {subtitle && (
-        <p className="text-sage-700/80 text-base sm:text-lg max-w-2xl mx-auto font-sans leading-relaxed">
+        <p className="text-sage-900 font-medium text-base sm:text-lg max-w-2xl mx-auto font-sans leading-relaxed">
           {subtitle}
         </p>
       )}

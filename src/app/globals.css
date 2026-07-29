@@ -3,42 +3,43 @@
 @layer base {
   :root {
     --background: 40 33% 97%;
-    --foreground: 160 20% 12%;
-    --cream-50: #FCFAFA;
-    --cream-100: #FAF6F0;
+    --foreground: 160 30% 8%;
+    --cream-50: #FFFFFF;
+    --cream-100: #FAF7F2;
     --cream-200: #F3EBDD;
     --cream-300: #EADCC7;
-    --sage-50: #F4F7F4;
-    --sage-100: #E3EBE3;
-    --sage-200: #C5D7C5;
-    --sage-400: #5C8A67;
-    --sage-600: #2C5338;
-    --sage-700: #1E3E29;
-    --sage-800: #142B1C;
+    --sage-50: #F2F6F3;
+    --sage-100: #E0ECE1;
+    --sage-200: #B8D4BB;
+    --sage-400: #4B7C56;
+    --sage-600: #1C4427;
+    --sage-700: #12331C;
+    --sage-800: #0B2413;
     --gold-400: #D4AF37;
     --gold-500: #C59B27;
+    --gold-600: #8A670D;
   }
 }
 
 @theme {
-  --color-cream-50: #FCFAFA;
-  --color-cream-100: #FAF6F0;
+  --color-cream-50: #FFFFFF;
+  --color-cream-100: #FAF7F2;
   --color-cream-200: #F3EBDD;
   --color-cream-300: #EADCC7;
-  --color-sage-50: #F4F7F4;
-  --color-sage-100: #E3EBE3;
-  --color-sage-200: #C5D7C5;
-  --color-sage-300: #93B595;
-  --color-sage-400: #5C8A67;
-  --color-sage-500: #3E6B4A;
-  --color-sage-600: #2C5338;
-  --color-sage-700: #1E3E29;
-  --color-sage-800: #142B1C;
-  --color-sage-900: #0B1910;
+  --color-sage-50: #F2F6F3;
+  --color-sage-100: #E0ECE1;
+  --color-sage-200: #B8D4BB;
+  --color-sage-300: #88B78E;
+  --color-sage-400: #4B7C56;
+  --color-sage-500: #315C3B;
+  --color-sage-600: #1C4427;
+  --color-sage-700: #12331C;
+  --color-sage-800: #0B2413;
+  --color-sage-900: #051309;
   --color-gold-300: #E6CA65;
   --color-gold-400: #D4AF37;
   --color-gold-500: #C59B27;
-  --color-gold-600: #9A7615;
+  --color-gold-600: #8A670D;
 }
 
 html {
@@ -50,22 +51,24 @@ body {
   color: var(--color-sage-900);
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Islamic pattern subtle background overlay */
 .bg-islamic-pattern {
-  background-image: radial-gradient(circle at 50% 50%, rgba(44, 83, 56, 0.03) 0%, transparent 70%),
-    radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
+  background-image: radial-gradient(circle at 50% 50%, rgba(28, 68, 39, 0.04) 0%, transparent 70%),
+    radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
 }
 
 .bg-glass {
-  background: rgba(250, 246, 240, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .bg-glass-dark {
-  background: rgba(30, 62, 41, 0.85);
+  background: rgba(11, 36, 19, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -75,12 +78,12 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF6F0;
+  background: #FAF7F2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #A8C5A8;
+  background: #B8D4BB;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #5C8A67;
+  background: #4B7C56;
 }

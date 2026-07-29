@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import CourseCard, { CourseProps } from "@/components/CourseCard";
 import PricingCard, { PricingPlan } from "@/components/PricingCard";
@@ -333,8 +332,8 @@ export default function Home() {
             {/* Left Column */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <ScrollReveal direction="down" delay={0.1}>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-sage-100 text-sage-800 border border-sage-300/60 shadow-xs">
-                  <FaQuran className="text-gold-500" />
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest bg-sage-100 text-sage-900 border border-sage-300 shadow-xs">
+                  <FaQuran className="text-gold-600" />
                   Serene & Authentic Online Learning
                 </span>
               </ScrollReveal>
@@ -342,17 +341,17 @@ export default function Home() {
               <ScrollReveal direction="up" delay={0.2}>
                 <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-sage-900 leading-tight tracking-tight">
                   Illuminate Your Heart With The{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sage-700 via-sage-600 to-gold-600">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sage-800 via-sage-700 to-gold-600">
                     Noble Quran
                   </span>
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal direction="up" delay={0.3}>
-                <p className="font-serif font-arabic text-2xl sm:text-3xl text-sage-700 font-semibold my-2">
+                <p className="font-serif font-arabic text-2xl sm:text-3xl text-sage-900 font-bold my-2">
                   بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
                 </p>
-                <p className="text-sage-800/80 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed">
+                <p className="text-sage-900 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
                   Join thousands of students worldwide learning Norani Qaida, Quran reading, Tajweed mastery, and Hifz with certified native Arab tutors in a tranquil, 1-on-1 online environment.
                 </p>
               </ScrollReveal>
@@ -361,7 +360,7 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
                   <a
                     href="#contact-section"
-                    className="w-full sm:w-auto px-8 py-4 rounded-full bg-sage-700 text-cream-50 font-bold text-base hover:bg-sage-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 border border-sage-600"
+                    className="w-full sm:w-auto px-8 py-4 rounded-full bg-sage-700 text-cream-50 font-extrabold text-base hover:bg-sage-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 border border-sage-600"
                   >
                     <span>Book Your Free Trial</span>
                     <FiArrowRight className="w-5 h-5 text-gold-400" />
@@ -369,7 +368,7 @@ export default function Home() {
 
                   <a
                     href="#courses-section"
-                    className="w-full sm:w-auto px-8 py-4 rounded-full bg-cream-50 text-sage-900 font-semibold text-base hover:bg-sage-100/60 transition-all duration-300 shadow-sm border border-sage-200 flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-8 py-4 rounded-full bg-cream-50 text-sage-900 font-extrabold text-base hover:bg-sage-100 transition-all duration-300 shadow-sm border border-sage-300 flex items-center justify-center gap-2"
                   >
                     <span>Explore Programs</span>
                   </a>
@@ -377,7 +376,7 @@ export default function Home() {
               </ScrollReveal>
 
               <ScrollReveal direction="up" delay={0.5}>
-                <div className="pt-6 flex items-center justify-center lg:justify-start gap-6 text-xs text-sage-700">
+                <div className="pt-6 flex items-center justify-center lg:justify-start gap-6 text-xs sm:text-sm font-bold text-sage-900">
                   <div className="flex items-center gap-1.5">
                     <FiCheckCircle className="text-gold-600 w-4 h-4" />
                     <span>No Credit Card Required</span>
@@ -399,37 +398,37 @@ export default function Home() {
               <ScrollReveal direction="left" delay={0.3}>
                 <div className="relative mx-auto max-w-md">
                   <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-gold-400/30 to-sage-400/30 blur-xl opacity-70" />
-                  <div className="relative rounded-3xl bg-cream-50 p-8 shadow-2xl border border-sage-200/80 space-y-6">
-                    <div className="text-center space-y-2 border-b border-sage-200/60 pb-6">
-                      <div className="w-16 h-16 mx-auto rounded-full bg-sage-100 text-gold-600 flex items-center justify-center text-3xl shadow-inner border border-sage-200">
+                  <div className="relative rounded-3xl bg-cream-50 p-8 shadow-2xl border border-sage-300 space-y-6">
+                    <div className="text-center space-y-2 border-b border-sage-200 pb-6">
+                      <div className="w-16 h-16 mx-auto rounded-full bg-sage-100 text-gold-600 flex items-center justify-center text-3xl shadow-inner border border-sage-300">
                         <FaQuran />
                       </div>
                       <h3 className="font-serif font-bold text-2xl text-sage-900">
                         Start 3-Day Free Trial
                       </h3>
-                      <p className="text-xs text-sage-600">
+                      <p className="text-xs sm:text-sm text-sage-900 font-medium">
                         Experience our interactive 1-on-1 virtual classroom with no obligation.
                       </p>
                     </div>
 
                     <div className="space-y-3 text-sm">
-                      <div className="flex items-center justify-between p-3 rounded-xl bg-sage-50/70 border border-sage-200/50">
-                        <span className="font-medium text-sage-800">1. Free Assessment</span>
-                        <span className="text-xs text-gold-600 font-bold">15 Mins</span>
+                      <div className="flex items-center justify-between p-3 rounded-xl bg-sage-50 border border-sage-200">
+                        <span className="font-bold text-sage-900">1. Free Assessment</span>
+                        <span className="text-xs text-gold-600 font-extrabold">15 Mins</span>
                       </div>
-                      <div className="flex items-center justify-between p-3 rounded-xl bg-sage-50/70 border border-sage-200/50">
-                        <span className="font-medium text-sage-800">2. Personalized Plan</span>
-                        <span className="text-xs text-gold-600 font-bold">Custom</span>
+                      <div className="flex items-center justify-between p-3 rounded-xl bg-sage-50 border border-sage-200">
+                        <span className="font-bold text-sage-900">2. Personalized Plan</span>
+                        <span className="text-xs text-gold-600 font-extrabold">Custom</span>
                       </div>
-                      <div className="flex items-center justify-between p-3 rounded-xl bg-sage-50/70 border border-sage-200/50">
-                        <span className="font-medium text-sage-800">3. Match Tutors</span>
-                        <span className="text-xs text-gold-600 font-bold">1-on-1</span>
+                      <div className="flex items-center justify-between p-3 rounded-xl bg-sage-50 border border-sage-200">
+                        <span className="font-bold text-sage-900">3. Match Tutors</span>
+                        <span className="text-xs text-gold-600 font-extrabold">1-on-1</span>
                       </div>
                     </div>
 
                     <a
                       href="#contact-section"
-                      className="block w-full text-center py-3.5 rounded-full bg-gold-400 text-sage-900 font-bold text-sm hover:bg-gold-300 transition-colors shadow-md"
+                      className="block w-full text-center py-3.5 rounded-full bg-gold-400 text-sage-900 font-extrabold text-sm hover:bg-gold-300 transition-colors shadow-md"
                     >
                       Schedule Trial Session Now
                     </a>
@@ -444,31 +443,31 @@ export default function Home() {
       {/* 2. STATS BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="up">
-          <div className="bg-sage-900 rounded-3xl p-8 sm:p-12 text-cream-100 shadow-xl border border-sage-800 relative overflow-hidden">
+          <div className="bg-sage-900 rounded-3xl p-8 sm:p-12 text-cream-50 shadow-xl border border-sage-800 relative overflow-hidden">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
               <div className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
                   5,000+
                 </p>
-                <p className="text-xs sm:text-sm text-sage-200/80 font-medium">Active Students</p>
+                <p className="text-xs sm:text-sm text-cream-50 font-bold">Active Students</p>
               </div>
               <div className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
                   120+
                 </p>
-                <p className="text-xs sm:text-sm text-sage-200/80 font-medium">Certified Native Scholars</p>
+                <p className="text-xs sm:text-sm text-cream-50 font-bold">Certified Native Scholars</p>
               </div>
               <div className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
                   45+
                 </p>
-                <p className="text-xs sm:text-sm text-sage-200/80 font-medium">Countries Reached</p>
+                <p className="text-xs sm:text-sm text-cream-50 font-bold">Countries Reached</p>
               </div>
               <div className="space-y-1">
                 <p className="font-serif text-3xl sm:text-4xl font-extrabold text-gold-400">
                   99.4%
                 </p>
-                <p className="text-xs sm:text-sm text-sage-200/80 font-medium">Student Satisfaction</p>
+                <p className="text-xs sm:text-sm text-cream-50 font-bold">Student Satisfaction</p>
               </div>
             </div>
           </div>
@@ -493,7 +492,7 @@ export default function Home() {
       </section>
 
       {/* 4. WHY CHOOSE US SECTION */}
-      <section className="bg-sage-50/80 py-20 border-y border-sage-200/60">
+      <section className="bg-sage-50 py-20 border-y border-sage-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Excellence in Education"
@@ -506,14 +505,14 @@ export default function Home() {
               const Icon = item.icon;
               return (
                 <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-                  <div className="bg-cream-50 rounded-2xl p-8 border border-sage-200/70 shadow-xs hover:shadow-lg transition-all duration-300 group">
-                    <div className="w-12 h-12 rounded-xl bg-sage-100 text-sage-700 flex items-center justify-center text-2xl mb-6 group-hover:bg-sage-700 group-hover:text-gold-400 transition-colors">
+                  <div className="bg-cream-50 rounded-2xl p-8 border border-sage-300 shadow-xs hover:shadow-lg transition-all duration-300 group">
+                    <div className="w-12 h-12 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center text-2xl mb-6 group-hover:bg-sage-700 group-hover:text-gold-400 transition-colors">
                       <Icon />
                     </div>
                     <h3 className="font-serif font-bold text-xl text-sage-900 mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-sage-700/80 text-sm leading-relaxed">
+                    <p className="text-sage-900 font-medium text-sm sm:text-base leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -533,19 +532,19 @@ export default function Home() {
         />
 
         {/* Sticky Player Card */}
-        <div className="bg-gradient-to-r from-sage-800 to-sage-900 rounded-3xl p-6 sm:p-8 text-cream-100 shadow-2xl border border-sage-700 flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+        <div className="bg-gradient-to-r from-sage-800 to-sage-900 rounded-3xl p-6 sm:p-8 text-cream-50 shadow-2xl border border-sage-700 flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
           <div className="flex items-center gap-4 w-full md:w-auto">
             <div className="w-14 h-14 rounded-2xl bg-gold-500/20 border border-gold-400/40 text-gold-400 flex items-center justify-center text-2xl flex-shrink-0">
               <FaQuran />
             </div>
             <div>
-              <span className="text-xs text-gold-400 font-semibold tracking-wider uppercase block">
+              <span className="text-xs text-gold-400 font-extrabold tracking-wider uppercase block">
                 {playingId ? "Currently Playing" : "Select a Surah"}
               </span>
-              <h3 className="font-serif font-bold text-lg text-cream-50">
+              <h3 className="font-serif font-bold text-lg sm:text-xl text-cream-50">
                 {currentTrack.surahName}
               </h3>
-              <p className="text-xs text-sage-200/80">
+              <p className="text-xs sm:text-sm text-sage-100 font-medium">
                 {currentTrack.reciter} • {currentTrack.style}
               </p>
             </div>
@@ -566,11 +565,11 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setPlayingId(playingId ? null : currentTrack.id)}
-              className="w-12 h-12 rounded-full bg-gold-400 text-sage-900 flex items-center justify-center text-xl font-bold shadow-md hover:bg-gold-300 transition-transform active:scale-95"
+              className="w-12 h-12 rounded-full bg-gold-400 text-sage-900 flex items-center justify-center text-xl font-extrabold shadow-md hover:bg-gold-300 transition-transform active:scale-95"
             >
               {playingId ? <FiPause /> : <FiPlay className="ml-0.5" />}
             </button>
-            <span className="text-xs text-sage-300 font-mono">{currentTrack.duration}</span>
+            <span className="text-xs text-gold-300 font-mono font-bold">{currentTrack.duration}</span>
           </div>
         </div>
 
@@ -583,8 +582,8 @@ export default function Home() {
                 <div
                   className={`p-6 rounded-2xl border transition-all duration-300 flex items-center justify-between gap-4 ${
                     isSelected
-                      ? "bg-cream-50 border-gold-400/90 shadow-md ring-1 ring-gold-400/40"
-                      : "bg-cream-50/70 hover:bg-cream-50 border-sage-200/80 shadow-xs"
+                      ? "bg-cream-50 border-gold-500 shadow-md ring-1 ring-gold-400/40"
+                      : "bg-cream-50 hover:bg-cream-100 border-sage-300 shadow-xs"
                   }`}
                 >
                   <div className="flex items-center gap-4">
@@ -593,31 +592,31 @@ export default function Home() {
                       className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
                         isSelected
                           ? "bg-sage-700 text-gold-400 shadow-md"
-                          : "bg-sage-100 text-sage-800 hover:bg-sage-200"
+                          : "bg-sage-100 text-sage-900 hover:bg-sage-200"
                       }`}
                     >
                       {isSelected ? <FiPause /> : <FiPlay className="ml-0.5" />}
                     </button>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-gold-600 bg-gold-400/10 px-2 py-0.5 rounded">
+                        <span className="text-xs font-extrabold text-gold-600 bg-gold-400/15 px-2 py-0.5 rounded">
                           #{track.surahNumber}
                         </span>
                         <h4 className="font-serif font-bold text-sage-900 text-base">
                           {track.surahName}
                         </h4>
                       </div>
-                      <p className="text-xs text-sage-600 mt-1">
+                      <p className="text-xs sm:text-sm text-sage-900 font-medium mt-1">
                         {track.reciter} • <span className="italic">{track.style}</span>
                       </p>
                     </div>
                   </div>
 
                   <div className="text-right">
-                    <span className="font-serif font-arabic text-lg text-sage-700 block">
+                    <span className="font-serif font-arabic text-lg font-bold text-sage-800 block">
                       {track.surahArabic}
                     </span>
-                    <span className="text-xs text-sage-600 font-mono mt-0.5 block">
+                    <span className="text-xs text-sage-900 font-mono font-bold mt-0.5 block">
                       {track.duration}
                     </span>
                   </div>
@@ -629,7 +628,7 @@ export default function Home() {
       </section>
 
       {/* 6. FREE RESOURCES SECTION */}
-      <section id="resources-section" className="bg-sage-50/80 py-20 border-y border-sage-200/60 scroll-mt-28">
+      <section id="resources-section" className="bg-sage-50 py-20 border-y border-sage-200 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Free PDF Downloads"
@@ -640,31 +639,31 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {downloadableResources.map((res, idx) => (
               <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-                <div className="bg-cream-50 rounded-2xl p-8 border border-sage-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between h-full">
+                <div className="bg-cream-50 rounded-2xl p-8 border border-sage-300 shadow-xs hover:shadow-md transition-all flex flex-col justify-between h-full">
                   <div>
                     <div className="flex items-center justify-between gap-4 mb-4">
-                      <span className="px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wider bg-sage-100 text-sage-800 border border-sage-200">
+                      <span className="px-3 py-1 rounded-md text-xs font-extrabold uppercase tracking-wider bg-sage-100 text-sage-900 border border-sage-300">
                         {res.category}
                       </span>
-                      <span className="text-xs text-sage-600 font-mono">
+                      <span className="text-xs font-bold text-sage-900 font-mono">
                         {res.fileSize}
                       </span>
                     </div>
                     <h3 className="font-serif font-bold text-lg text-sage-900 mb-2">
                       {res.title}
                     </h3>
-                    <p className="text-sage-700/80 text-sm leading-relaxed mb-6">
+                    <p className="text-sage-900 font-medium text-sm leading-relaxed mb-6">
                       {res.description}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-sage-200/60 flex items-center justify-between">
-                    <span className="text-xs text-gold-600 font-semibold flex items-center gap-1">
+                  <div className="pt-4 border-t border-sage-200 flex items-center justify-between">
+                    <span className="text-xs text-gold-600 font-bold flex items-center gap-1">
                       <FiCheckCircle /> Free PDF
                     </span>
                     <button
                       onClick={() => alert(`Downloading sample guide: ${res.title}`)}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-sage-700 text-cream-50 text-xs font-semibold hover:bg-sage-800 transition-colors shadow-xs"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-sage-700 text-cream-50 text-xs font-bold hover:bg-sage-800 transition-colors shadow-xs"
                     >
                       <FiDownload className="w-3.5 h-3.5" />
                       <span>Download</span>
@@ -695,7 +694,7 @@ export default function Home() {
 
         {/* Guarantee Banner */}
         <ScrollReveal direction="up">
-          <div className="bg-cream-50 p-8 rounded-3xl border border-gold-400/60 shadow-md flex flex-col md:flex-row items-center gap-6 text-center md:text-left max-w-4xl mx-auto">
+          <div className="bg-cream-50 p-8 rounded-3xl border border-gold-500 shadow-md flex flex-col md:flex-row items-center gap-6 text-center md:text-left max-w-4xl mx-auto">
             <div className="w-16 h-16 rounded-full bg-gold-400/20 text-gold-600 border border-gold-400/40 flex items-center justify-center text-3xl flex-shrink-0">
               <FiShield />
             </div>
@@ -703,7 +702,7 @@ export default function Home() {
               <h3 className="font-serif font-bold text-xl text-sage-900">
                 100% Satisfaction & Money-Back Guarantee
               </h3>
-              <p className="text-sage-700/80 text-sm leading-relaxed">
+              <p className="text-sage-900 font-medium text-sm leading-relaxed">
                 If within your first 7 days of paid enrollment you are not completely satisfied with your tutor or course progression, we will refund your tuition in full with no questions asked.
               </p>
             </div>
@@ -712,40 +711,40 @@ export default function Home() {
 
         {/* Feature Matrix */}
         <ScrollReveal direction="up">
-          <div className="bg-cream-50 rounded-3xl border border-sage-200/80 shadow-xs overflow-hidden max-w-5xl mx-auto">
+          <div className="bg-cream-50 rounded-3xl border border-sage-300 shadow-xs overflow-hidden max-w-5xl mx-auto">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm border-collapse">
                 <thead>
                   <tr className="bg-sage-900 text-cream-50 font-serif border-b border-sage-800">
-                    <th className="p-5 font-bold text-base">Plan Feature</th>
-                    <th className="p-5 text-center font-bold">Starter ($10/mo)</th>
-                    <th className="p-5 text-center font-bold text-gold-400">Standard ($20/mo)</th>
-                    <th className="p-5 text-center font-bold">Intensive ($50/mo)</th>
+                    <th className="p-5 font-extrabold text-base">Plan Feature</th>
+                    <th className="p-5 text-center font-extrabold">Starter ($10/mo)</th>
+                    <th className="p-5 text-center font-extrabold text-gold-400">Standard ($20/mo)</th>
+                    <th className="p-5 text-center font-extrabold">Intensive ($50/mo)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-sage-200/60 text-sage-800">
+                <tbody className="divide-y divide-sage-200 text-sage-900 font-semibold">
                   {comparisonMatrix.map((row, idx) => (
-                    <tr key={idx} className={idx % 2 === 0 ? "bg-cream-50" : "bg-cream-100/60"}>
-                      <td className="p-5 font-medium">{row.feature}</td>
-                      <td className="p-5 text-center font-semibold text-sage-900">
+                    <tr key={idx} className={idx % 2 === 0 ? "bg-cream-50" : "bg-cream-100"}>
+                      <td className="p-5 font-bold">{row.feature}</td>
+                      <td className="p-5 text-center font-extrabold text-sage-900">
                         {typeof row.starter === "boolean" ? (
                           row.starter ? <FiCheck className="mx-auto text-sage-700 w-5 h-5" /> : <FiX className="mx-auto text-sage-400 w-4 h-4" />
                         ) : (
-                          <span className="text-xs font-semibold">{row.starter}</span>
+                          <span className="text-xs font-bold">{row.starter}</span>
                         )}
                       </td>
-                      <td className="p-5 text-center font-semibold text-sage-900 bg-gold-400/5">
+                      <td className="p-5 text-center font-extrabold text-sage-900 bg-gold-400/10">
                         {typeof row.standard === "boolean" ? (
                           row.standard ? <FiCheck className="mx-auto text-gold-600 w-5 h-5" /> : <FiX className="mx-auto text-sage-400 w-4 h-4" />
                         ) : (
-                          <span className="text-xs font-bold text-sage-900">{row.standard}</span>
+                          <span className="text-xs font-extrabold text-sage-900">{row.standard}</span>
                         )}
                       </td>
-                      <td className="p-5 text-center font-semibold text-sage-900">
+                      <td className="p-5 text-center font-extrabold text-sage-900">
                         {typeof row.intensive === "boolean" ? (
                           row.intensive ? <FiCheck className="mx-auto text-sage-700 w-5 h-5" /> : <FiX className="mx-auto text-sage-400 w-4 h-4" />
                         ) : (
-                          <span className="text-xs font-semibold">{row.intensive}</span>
+                          <span className="text-xs font-bold">{row.intensive}</span>
                         )}
                       </td>
                     </tr>
@@ -767,21 +766,21 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="bg-cream-50 p-8 rounded-2xl border border-sage-200/80 shadow-xs space-y-4">
+            <div className="bg-cream-50 p-8 rounded-2xl border border-sage-300 shadow-xs space-y-4">
               <div className="flex text-gold-500 gap-1 text-sm">
                 {[...Array(5)].map((_, i) => (
                   <FaStar key={i} />
                 ))}
               </div>
-              <p className="text-sage-800 text-sm leading-relaxed italic">
+              <p className="text-sage-900 font-medium text-sm leading-relaxed italic">
                 &ldquo;My 8-year-old son started from zero Arabic with Norani Qaida. In just 3 months with Sheikh Mahmoud, he reads basic Surahs beautifully!&rdquo;
               </p>
-              <div className="pt-4 border-t border-sage-200/60 flex items-center justify-between">
+              <div className="pt-4 border-t border-sage-200 flex items-center justify-between">
                 <div>
                   <h4 className="font-serif font-bold text-sage-900 text-sm">Fatima Al-Mansoor</h4>
-                  <p className="text-xs text-sage-600">Parent • United Kingdom</p>
+                  <p className="text-xs font-semibold text-sage-800">Parent • United Kingdom</p>
                 </div>
-                <span className="text-xs font-semibold px-2.5 py-1 bg-sage-100 rounded-full text-sage-800">
+                <span className="text-xs font-bold px-2.5 py-1 bg-sage-100 rounded-full text-sage-900">
                   Norani Qaida
                 </span>
               </div>
@@ -789,21 +788,21 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <div className="bg-cream-50 p-8 rounded-2xl border border-sage-200/80 shadow-xs space-y-4">
+            <div className="bg-cream-50 p-8 rounded-2xl border border-sage-300 shadow-xs space-y-4">
               <div className="flex text-gold-500 gap-1 text-sm">
                 {[...Array(5)].map((_, i) => (
                   <FaStar key={i} />
                 ))}
               </div>
-              <p className="text-sage-800 text-sm leading-relaxed italic">
+              <p className="text-sage-900 font-medium text-sm leading-relaxed italic">
                 &ldquo;As a working professional in New York, finding a tutor who fits my late evening schedule was impossible until I found Noor Quran Academy. 100% recommended!&rdquo;
               </p>
-              <div className="pt-4 border-t border-sage-200/60 flex items-center justify-between">
+              <div className="pt-4 border-t border-sage-200 flex items-center justify-between">
                 <div>
                   <h4 className="font-serif font-bold text-sage-900 text-sm">Tariq H. Johnson</h4>
-                  <p className="text-xs text-sage-600">Adult Student • USA</p>
+                  <p className="text-xs font-semibold text-sage-800">Adult Student • USA</p>
                 </div>
-                <span className="text-xs font-semibold px-2.5 py-1 bg-sage-100 rounded-full text-sage-800">
+                <span className="text-xs font-bold px-2.5 py-1 bg-sage-100 rounded-full text-sage-900">
                   Tajweed Master
                 </span>
               </div>
@@ -811,21 +810,21 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <div className="bg-cream-50 p-8 rounded-2xl border border-sage-200/80 shadow-xs space-y-4">
+            <div className="bg-cream-50 p-8 rounded-2xl border border-sage-300 shadow-xs space-y-4">
               <div className="flex text-gold-500 gap-1 text-sm">
                 {[...Array(5)].map((_, i) => (
                   <FaStar key={i} />
                 ))}
               </div>
-              <p className="text-sage-800 text-sm leading-relaxed italic">
+              <p className="text-sage-900 font-medium text-sm leading-relaxed italic">
                 &ldquo;Ustadha Maryam has been so patient with me. I completed my first Juz memorization and earned my preliminary Tajweed certificate. Extremely grateful!&rdquo;
               </p>
-              <div className="pt-4 border-t border-sage-200/60 flex items-center justify-between">
+              <div className="pt-4 border-t border-sage-200 flex items-center justify-between">
                 <div>
                   <h4 className="font-serif font-bold text-sage-900 text-sm">Aisha K. Siddiqui</h4>
-                  <p className="text-xs text-sage-600">Sister Student • Canada</p>
+                  <p className="text-xs font-semibold text-sage-800">Sister Student • Canada</p>
                 </div>
-                <span className="text-xs font-semibold px-2.5 py-1 bg-sage-100 rounded-full text-sage-800">
+                <span className="text-xs font-bold px-2.5 py-1 bg-sage-100 rounded-full text-sage-900">
                   Hifz Program
                 </span>
               </div>
@@ -835,7 +834,7 @@ export default function Home() {
       </section>
 
       {/* 9. FAQ ACCORDION SECTION */}
-      <section className="bg-sage-50/80 py-16 border-y border-sage-200/60">
+      <section className="bg-sage-50 py-16 border-y border-sage-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
           <SectionHeading
             badge="Got Questions?"
@@ -846,12 +845,12 @@ export default function Home() {
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
               <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-                <div className="bg-cream-50 p-6 rounded-2xl border border-sage-200/80 shadow-xs space-y-2">
+                <div className="bg-cream-50 p-6 rounded-2xl border border-sage-300 shadow-xs space-y-2">
                   <h4 className="font-serif font-bold text-lg text-sage-900 flex items-center gap-2">
-                    <FiHelpCircle className="text-gold-500 flex-shrink-0" />
+                    <FiHelpCircle className="text-gold-600 flex-shrink-0" />
                     {faq.q}
                   </h4>
-                  <p className="text-sage-700/80 text-sm leading-relaxed pl-6">
+                  <p className="text-sage-900 font-medium text-sm sm:text-base leading-relaxed pl-6">
                     {faq.a}
                   </p>
                 </div>
@@ -873,30 +872,30 @@ export default function Home() {
           {/* Form Column */}
           <div className="lg:col-span-7">
             <ScrollReveal direction="up">
-              <div className="bg-cream-50 p-8 sm:p-10 rounded-3xl border border-sage-200/80 shadow-md">
+              <div className="bg-cream-50 p-8 sm:p-10 rounded-3xl border border-sage-300 shadow-md">
                 <h3 className="font-serif text-2xl font-bold text-sage-900 mb-2">
                   Send Trial Inquiry
                 </h3>
-                <p className="text-xs text-sage-600 mb-6">
+                <p className="text-sm font-semibold text-sage-800 mb-6">
                   Our academic advisor will reach out within 24 hours to confirm your trial slot.
                 </p>
 
                 {status === "success" && (
-                  <div className="mb-6 p-4 rounded-xl bg-sage-100 border border-sage-300 text-sage-800 text-sm flex items-start gap-3">
+                  <div className="mb-6 p-4 rounded-xl bg-sage-100 border border-sage-300 text-sage-900 text-sm flex items-start gap-3">
                     <FiCheckCircle className="text-sage-700 w-5 h-5 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-bold">Request Sent Successfully!</p>
-                      <p className="text-xs mt-1 text-sage-700">{responseMsg}</p>
+                      <p className="font-extrabold">Request Sent Successfully!</p>
+                      <p className="text-xs font-semibold mt-1 text-sage-800">{responseMsg}</p>
                     </div>
                   </div>
                 )}
 
                 {status === "error" && (
-                  <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm flex items-start gap-3">
+                  <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-900 text-sm flex items-start gap-3">
                     <FiAlertCircle className="text-red-600 w-5 h-5 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-bold">Submission Error</p>
-                      <p className="text-xs mt-1 text-red-700">{responseMsg}</p>
+                      <p className="font-extrabold">Submission Error</p>
+                      <p className="text-xs font-semibold mt-1 text-red-800">{responseMsg}</p>
                     </div>
                   </div>
                 )}
@@ -904,7 +903,7 @@ export default function Home() {
                 <form onSubmit={handleFormSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-1.5">
+                      <label className="block text-xs font-extrabold uppercase tracking-wider text-sage-900 mb-1.5">
                         Your Full Name *
                       </label>
                       <input
@@ -914,12 +913,12 @@ export default function Home() {
                         value={formData.name}
                         onChange={handleFormChange}
                         placeholder="e.g. Zakariya Ahmad"
-                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-300 text-sm font-semibold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-1.5">
+                      <label className="block text-xs font-extrabold uppercase tracking-wider text-sage-900 mb-1.5">
                         Email Address *
                       </label>
                       <input
@@ -929,14 +928,14 @@ export default function Home() {
                         value={formData.email}
                         onChange={handleFormChange}
                         placeholder="zakariya@example.com"
-                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-300 text-sm font-semibold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-1.5">
+                      <label className="block text-xs font-extrabold uppercase tracking-wider text-sage-900 mb-1.5">
                         WhatsApp / Phone Number
                       </label>
                       <input
@@ -945,19 +944,19 @@ export default function Home() {
                         value={formData.phone}
                         onChange={handleFormChange}
                         placeholder="+1 (555) 000-0000"
-                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-300 text-sm font-semibold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-1.5">
+                      <label className="block text-xs font-extrabold uppercase tracking-wider text-sage-900 mb-1.5">
                         Interested Program
                       </label>
                       <select
                         name="course"
                         value={formData.course}
                         onChange={handleFormChange}
-                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-300 text-sm font-extrabold text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-700"
                       >
                         <option value="Norani Qaida & Basic Quran for Kids">
                           Norani Qaida & Basic Quran for Kids ($10/mo)
@@ -973,7 +972,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-1.5">
+                    <label className="block text-xs font-extrabold uppercase tracking-wider text-sage-900 mb-1.5">
                       Your Message or Preferred Timezone *
                     </label>
                     <textarea
@@ -983,14 +982,14 @@ export default function Home() {
                       value={formData.message}
                       onChange={handleFormChange}
                       placeholder="Please let us know your preferred study days, age of student, or any specific goals..."
-                      className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+                      className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-300 text-sm font-semibold text-sage-900 placeholder:text-sage-700 focus:outline-none focus:ring-2 focus:ring-sage-700"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full py-4 rounded-full bg-sage-700 text-cream-50 font-bold text-sm hover:bg-sage-800 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 border border-sage-600 disabled:opacity-50"
+                    className="w-full py-4 rounded-full bg-sage-700 text-cream-50 font-extrabold text-sm sm:text-base hover:bg-sage-800 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 border border-sage-600 disabled:opacity-50"
                   >
                     <FiSend className="w-4 h-4 text-gold-400" />
                     <span>{status === "loading" ? "Submitting..." : "Submit Trial Request"}</span>
@@ -1003,20 +1002,20 @@ export default function Home() {
           {/* Contact Details Sidebar */}
           <div className="lg:col-span-5 space-y-6">
             <ScrollReveal direction="left" delay={0.2}>
-              <div className="bg-sage-900 text-cream-100 p-8 rounded-3xl shadow-xl border border-sage-800 space-y-6">
+              <div className="bg-sage-900 text-cream-50 p-8 rounded-3xl shadow-xl border border-sage-800 space-y-6">
                 <h3 className="font-serif font-bold text-2xl border-b border-sage-800 pb-4 text-cream-50">
                   Direct Academy Channels
                 </h3>
 
-                <div className="space-y-5 text-sm">
+                <div className="space-y-5 text-sm sm:text-base font-semibold">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center flex-shrink-0 mt-1">
                       <FiMail />
                     </div>
                     <div>
-                      <h4 className="font-bold text-cream-50">Email Support</h4>
-                      <p className="text-xs text-sage-200/80 mt-0.5">info@noorquranacademy.com</p>
-                      <p className="text-[11px] text-gold-400/80 mt-1">Replies within 4-6 hours</p>
+                      <h4 className="font-extrabold text-cream-50">Email Support</h4>
+                      <p className="text-xs sm:text-sm text-cream-100 mt-0.5">info@noorquranacademy.com</p>
+                      <p className="text-xs text-gold-400 font-bold mt-1">Replies within 4-6 hours</p>
                     </div>
                   </div>
 
@@ -1025,9 +1024,9 @@ export default function Home() {
                       <FaWhatsapp />
                     </div>
                     <div>
-                      <h4 className="font-bold text-cream-50">Instant WhatsApp Chat</h4>
-                      <p className="text-xs text-sage-200/80 mt-0.5">+1 (800) 555-7872</p>
-                      <p className="text-[11px] text-gold-400/80 mt-1">Available 24/7 for quick Q&A</p>
+                      <h4 className="font-extrabold text-cream-50">Instant WhatsApp Chat</h4>
+                      <p className="text-xs sm:text-sm text-cream-100 mt-0.5">+1 (800) 555-7872</p>
+                      <p className="text-xs text-gold-400 font-bold mt-1">Available 24/7 for quick Q&A</p>
                     </div>
                   </div>
 
@@ -1036,9 +1035,9 @@ export default function Home() {
                       <FiPhone />
                     </div>
                     <div>
-                      <h4 className="font-bold text-cream-50">Toll-Free Phone</h4>
-                      <p className="text-xs text-sage-200/80 mt-0.5">+1 (800) 555-QURAN</p>
-                      <p className="text-[11px] text-gold-400/80 mt-1">Mon - Fri • 9am - 6pm EST</p>
+                      <h4 className="font-extrabold text-cream-50">Toll-Free Phone</h4>
+                      <p className="text-xs sm:text-sm text-cream-100 mt-0.5">+1 (800) 555-QURAN</p>
+                      <p className="text-xs text-gold-400 font-bold mt-1">Mon - Fri • 9am - 6pm EST</p>
                     </div>
                   </div>
 
@@ -1047,8 +1046,8 @@ export default function Home() {
                       <FiMapPin />
                     </div>
                     <div>
-                      <h4 className="font-bold text-cream-50">Global Online Campus</h4>
-                      <p className="text-xs text-sage-200/80 mt-0.5">
+                      <h4 className="font-extrabold text-cream-50">Global Online Campus</h4>
+                      <p className="text-xs sm:text-sm text-cream-100 mt-0.5">
                         Students across USA, UK, Canada, Australia, Europe & UAE.
                       </p>
                     </div>
@@ -1058,11 +1057,11 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal direction="left" delay={0.3}>
-              <div className="bg-cream-50 p-6 rounded-3xl border border-sage-200/80 shadow-xs text-center space-y-2">
-                <p className="font-serif font-arabic text-xl text-sage-800">
+              <div className="bg-cream-50 p-6 rounded-3xl border border-sage-300 shadow-xs text-center space-y-2">
+                <p className="font-serif font-arabic text-xl font-bold text-sage-900">
                   خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ
                 </p>
-                <p className="text-xs font-serif text-sage-700 italic">
+                <p className="text-xs sm:text-sm font-serif font-bold text-sage-900 italic">
                   &ldquo;The best among you are those who learn the Quran and teach it.&rdquo; (Sahih Al-Bukhari)
                 </p>
               </div>
