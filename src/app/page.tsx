@@ -126,6 +126,8 @@ const downloadableResources = [
     category: "Norani Qaida",
     fileSize: "2.1 MB",
     format: "PDF Document",
+    downloadUrl: "/resources/norani-qaida-foundation.pdf",
+    fileName: "Norani_Qaida_Foundation_Chart.pdf",
     description:
       "Complete Norani Qaida beginner charts with joint letter recognitions and short vowels (Fatha, Kasra, Damma).",
   },
@@ -134,6 +136,8 @@ const downloadableResources = [
     category: "Tajweed Guide",
     fileSize: "2.4 MB",
     format: "PDF Document",
+    downloadUrl: "/resources/essential-tajweed-rules.pdf",
+    fileName: "Essential_Tajweed_Rules_Guide.pdf",
     description:
       "A color-coded visual summary of Noon Sakinah, Meem Sakinah, Mudood (elongations), and Makharij.",
   },
@@ -142,6 +146,8 @@ const downloadableResources = [
     category: "Study Tool",
     fileSize: "3.1 MB",
     format: "Printable PDF",
+    downloadUrl: "/resources/daily-hifz-logbook.pdf",
+    fileName: "Daily_Quranic_Hifz_Logbook.pdf",
     description:
       "A 30-day structured tracker for recording daily Sabaq, Sabqi, and Manzil revisions.",
   },
@@ -779,13 +785,14 @@ export default function Home() {
                     <span className="text-xs text-gold-600 font-bold flex items-center gap-1">
                       <FiCheckCircle /> Free PDF
                     </span>
-                    <button
-                      onClick={() => alert(`Downloading sample guide: ${res.title}`)}
+                    <a
+                      href={res.downloadUrl}
+                      download={res.fileName}
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-sage-700 text-cream-50 text-xs font-bold hover:bg-sage-800 transition-colors shadow-xs"
                     >
                       <FiDownload className="w-3.5 h-3.5" />
-                      <span>Download</span>
-                    </button>
+                      <span>Download PDF</span>
+                    </a>
                   </div>
                 </motion.div>
               </ScrollReveal>
