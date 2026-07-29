@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Noor Quran Academy 🌙
 
-## Getting Started
+A serene, authentic online Quran Academy web application built with **Next.js 15**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 
-First, run the development server:
+## 🌟 Features
+
+- **Serene Green & Cream Aesthetics**: Elegant, tranquil UI designed with soft sage green (`#1E3E29`), cream (`#FAF6F0`), and warm gold accents (`#D4AF37`).
+- **Scroll Animations**: Smooth Framer Motion reveal animations as you scroll across all pages.
+- **Static Informational Pages**:
+  - **Home (`/`)**: Hero banner, stats counter, program previews, why choose us, student testimonials, USD pricing, and enrollment CTAs.
+  - **Courses (`/courses`)**: Searchable and filterable course catalog (Tajweed, Hifz, Kids, Arabic Language, Tafseer, Ijazah).
+  - **Recitations (`/recitations`)**: Audio sanctuary with interactive demo player controls and recitation style guide.
+  - **Resources (`/resources`)**: Downloadable study guides and FAQ knowledge base.
+  - **Pricing (`/pricing`)**: USD tuition tiers ($29, $59, $99/mo), money-back guarantee, and full side-by-side feature matrix.
+  - **Contact (`/contact`)**: Working SMTP contact form submitting to `/api/contact`.
+
+## 🛠️ Getting Started
+
+First, install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📧 SMTP Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file in the root directory:
 
-## Learn More
+```env
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_app_password
+CONTACT_EMAIL=your_email@gmail.com
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📄 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Created for Noor Quran Academy.
