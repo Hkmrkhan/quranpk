@@ -85,6 +85,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://quranpk.vercel.app",
   },
+  verification: {
+    google: "googleadaa3567aeb9e360",
+  },
 };
 
 // Generative Engine Optimization (GEO) & AI Search Schema for ChatGPT, Perplexity & Gemini
