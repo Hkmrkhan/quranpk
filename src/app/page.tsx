@@ -32,8 +32,21 @@ import {
 } from "react-icons/fi";
 import { FaQuran, FaStar, FaWhatsapp } from "react-icons/fa";
 
-// Sample Courses Data
+// Exactly 3 Programs
 const sampleCourses: CourseProps[] = [
+  {
+    id: "norani-qaida-kids",
+    title: "Norani Qaida & Basic Quran for Kids",
+    arabicTitle: "القاعدة النورانية للأطفال",
+    category: "Children Program",
+    description:
+      "Interactive Norani Qaida foundation, basic letter pronunciation, and essential Islamic manners designed specifically for young learners.",
+    level: "Beginner",
+    duration: "30 Min / Session",
+    schedule: "2 to 3 Days / Week",
+    priceUSD: 10,
+    featured: false,
+  },
   {
     id: "tajweed-basics",
     title: "Quran Reading & Tajweed Rules",
@@ -44,7 +57,7 @@ const sampleCourses: CourseProps[] = [
     level: "All Levels",
     duration: "30 Min / Session",
     schedule: "2 to 4 Days / Week",
-    priceUSD: 59,
+    priceUSD: 20,
     featured: true,
   },
   {
@@ -57,56 +70,8 @@ const sampleCourses: CourseProps[] = [
     level: "Intermediate",
     duration: "45 Min / Session",
     schedule: "3 to 5 Days / Week",
-    priceUSD: 99,
+    priceUSD: 50,
     featured: true,
-  },
-  {
-    id: "quran-kids",
-    title: "Fun Quran & Arabic for Kids",
-    arabicTitle: "تعليم القرآن للأطفال",
-    category: "Children Program",
-    description:
-      "Interactive, engaging Quran reading and Islamic manners designed specifically for young minds aged 5-14.",
-    level: "Beginner",
-    duration: "30 Min / Session",
-    schedule: "2 to 3 Days / Week",
-    priceUSD: 49,
-  },
-  {
-    id: "classical-arabic",
-    title: "Classical Quranic Arabic",
-    arabicTitle: "اللغة العربية وقواعدها",
-    category: "Arabic Language",
-    description:
-      "Understand the language of the Quran directly. Covers grammar (Nahw), morphology (Sarf), and vocabulary.",
-    level: "Intermediate",
-    duration: "45 Min / Session",
-    schedule: "2 to 3 Days / Week",
-    priceUSD: 69,
-  },
-  {
-    id: "tafseer-studies",
-    title: "Tafseer & Quranic Reflection",
-    arabicTitle: "تفسير القرآن الكريم",
-    category: "Tafseer & Reflection",
-    description:
-      "Deepen your understanding of Surah contexts, historical revelations, and practical life guidance from authentic commentaries.",
-    level: "All Levels",
-    duration: "40 Min / Session",
-    schedule: "2 Days / Week",
-    priceUSD: 55,
-  },
-  {
-    id: "ijazah-certification",
-    title: "Ijazah Sanad Certification",
-    arabicTitle: "الإجازة بالسند المتصل",
-    category: "Memorization",
-    description:
-      "Exclusive track for advanced reciters to earn an official Sanad connected directly to the Prophet Muhammad (PBUH).",
-    level: "Advanced",
-    duration: "60 Min / Session",
-    schedule: "3 to 4 Days / Week",
-    priceUSD: 119,
   },
 ];
 
@@ -153,20 +118,20 @@ const tracks = [
 // Downloadable Resources
 const downloadableResources = [
   {
+    title: "Norani Qaida Foundation Chart",
+    category: "Norani Qaida",
+    fileSize: "2.1 MB",
+    format: "PDF Document",
+    description:
+      "Complete Norani Qaida beginner charts with joint letter recognitions and short vowels (Fatha, Kasra, Damma).",
+  },
+  {
     title: "Essential Tajweed Rules Quick Reference Chart",
     category: "Tajweed Guide",
     fileSize: "2.4 MB",
     format: "PDF Document",
     description:
       "A color-coded visual summary of Noon Sakinah, Meem Sakinah, Mudood (elongations), and Makharij.",
-  },
-  {
-    title: "Arabic Alphabet & Phonetics Cheat Sheet",
-    category: "Beginner Guide",
-    fileSize: "1.8 MB",
-    format: "PDF Document",
-    description:
-      "High-resolution chart showing letter forms (isolated, initial, medial, final) and heavy vs light distinction.",
   },
   {
     title: "Daily Quranic Memorization (Hifz) Logbook",
@@ -178,29 +143,30 @@ const downloadableResources = [
   },
 ];
 
-// Pricing Plans
+// Pricing Plans ($10, $20, $50)
 const pricingPlans: PricingPlan[] = [
   {
     id: "starter",
     name: "Starter Plan",
-    priceUSD: 29,
+    priceUSD: 10,
     billingPeriod: "month",
-    description: "Ideal for beginners starting their Quranic journey with basic recitation.",
+    description: "Ideal for kids & beginners starting Norani Qaida & foundation reading.",
     features: [
       "2 Classes per Week (8/mo)",
       "30-Minute 1-on-1 Sessions",
+      "Norani Qaida & Foundation Track",
       "Certified Native Arab Tutor",
       "Flexible Class Rescheduling",
       "Monthly Progress Reports",
     ],
-    ctaText: "Start Starter Plan",
+    ctaText: "Start Starter Plan ($10)",
   },
   {
     id: "standard",
     name: "Standard Plan",
-    priceUSD: 59,
+    priceUSD: 20,
     billingPeriod: "month",
-    description: "Our most popular track for steady progression and Tajweed fluency.",
+    description: "Our most popular track for steady Tajweed progression & fluent recitation.",
     features: [
       "3 Classes per Week (12/mo)",
       "30 to 45 Min Sessions",
@@ -210,12 +176,12 @@ const pricingPlans: PricingPlan[] = [
       "24/7 Student Portal Access",
     ],
     popular: true,
-    ctaText: "Get Standard Plan",
+    ctaText: "Get Standard Plan ($20)",
   },
   {
     id: "intensive",
     name: "Intensive Hifz",
-    priceUSD: 99,
+    priceUSD: 50,
     billingPeriod: "month",
     description: "Comprehensive daily memorization and Ijazah preparation.",
     features: [
@@ -226,14 +192,16 @@ const pricingPlans: PricingPlan[] = [
       "Official Ijazah Certification Track",
       "Priority WhatsApp Tutor Access",
     ],
-    ctaText: "Join Intensive Track",
+    ctaText: "Join Intensive Track ($50)",
   },
 ];
 
 // Comparison Matrix
 const comparisonMatrix = [
+  { feature: "Monthly Tuition Fee", starter: "$10 / mo", standard: "$20 / mo", intensive: "$50 / mo" },
   { feature: "Classes per Month", starter: "8 Classes", standard: "12 Classes", intensive: "20 Classes" },
   { feature: "Session Duration", starter: "30 Mins", standard: "30 - 45 Mins", intensive: "45 - 60 Mins" },
+  { feature: "Norani Qaida Included", starter: true, standard: true, intensive: true },
   { feature: "Tutor Type", starter: "Certified Tutor", standard: "Native Scholar", intensive: "Senior Al-Azhar Scholar" },
   { feature: "1-on-1 Private Classroom", starter: true, standard: true, intensive: true },
   { feature: "Free PDF Worksheets", starter: true, standard: true, intensive: true },
@@ -246,7 +214,7 @@ const whyChooseUs = [
     icon: GiTeacher,
     title: "Al-Azhar Certified Tutors",
     description:
-      "Learn from verified native Arabic scholars with Sanad (chain of transmission) connecting back to the Prophet (PBUH).",
+      "Learn from verified native scholars with Sanad (chain of transmission) connecting back to the Prophet (PBUH).",
   },
   {
     icon: GiFlexibleStar,
@@ -284,7 +252,7 @@ const whyChooseUs = [
 const faqs = [
   {
     q: "How do the 1-on-1 online classes work?",
-    a: "Classes are held live via our virtual classroom portal or Zoom/Skype. You connect 1-on-1 with your personal tutor who shares digital Mushaf screens and corrects your recitation in real time.",
+    a: "Classes are held live via our virtual classroom portal or Zoom/Skype. You connect 1-on-1 with your personal tutor who shares Norani Qaida or digital Mushaf screens and corrects your pronunciation in real time.",
   },
   {
     q: "Can I choose my preferred class schedule?",
@@ -306,7 +274,7 @@ export default function Home() {
     name: "",
     email: "",
     phone: "",
-    course: "Quran Reading & Tajweed Rules",
+    course: "Norani Qaida & Basic Quran for Kids",
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -341,7 +309,7 @@ export default function Home() {
           name: "",
           email: "",
           phone: "",
-          course: "Quran Reading & Tajweed Rules",
+          course: "Norani Qaida & Basic Quran for Kids",
           message: "",
         });
       } else {
@@ -385,7 +353,7 @@ export default function Home() {
                   بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
                 </p>
                 <p className="text-sage-800/80 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed">
-                  Join thousands of students worldwide learning Quran reading, Tajweed mastery, and Hifz with certified native Arab tutors in a tranquil, 1-on-1 online environment.
+                  Join thousands of students worldwide learning Norani Qaida, Quran reading, Tajweed mastery, and Hifz with certified native Arab tutors in a tranquil, 1-on-1 online environment.
                 </p>
               </ScrollReveal>
 
@@ -507,15 +475,15 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* 3. COURSES SHOWCASE SECTION */}
+      {/* 3. COURSES SHOWCASE SECTION (EXACTLY 3 PROGRAMS) */}
       <section id="courses-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <SectionHeading
           badge="Structured Learning Tracks"
-          title="Our Comprehensive Quranic Programs"
-          subtitle="Designed for all age groups and skill levels, from absolute beginners learning Arabic letters to advanced students seeking Ijazah certification."
+          title="Our Academy Programs"
+          subtitle="Taught by certified native Arabic scholars tailored to your age, goal, and schedule."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {sampleCourses.map((course, idx) => (
             <ScrollReveal key={course.id} direction="up" delay={idx * 0.1}>
               <CourseCard course={course} />
@@ -709,11 +677,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. PRICING SECTION (USD) */}
+      {/* 7. PRICING SECTION (EXACTLY $10, $20, $50 USD) */}
       <section id="pricing-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28 space-y-12">
         <SectionHeading
           badge="Affordable Monthly Plans"
-          title="Transparent Tuition Pricing (USD)"
+          title="Transparent Tuition Pricing ($10, $20, $50)"
           subtitle="Choose the plan that fits your schedule. No setup fees, cancel or pause anytime with our 100% money-back guarantee."
         />
 
@@ -750,16 +718,16 @@ export default function Home() {
                 <thead>
                   <tr className="bg-sage-900 text-cream-50 font-serif border-b border-sage-800">
                     <th className="p-5 font-bold text-base">Plan Feature</th>
-                    <th className="p-5 text-center font-bold">Starter ($29/mo)</th>
-                    <th className="p-5 text-center font-bold text-gold-400">Standard ($59/mo)</th>
-                    <th className="p-5 text-center font-bold">Intensive ($99/mo)</th>
+                    <th className="p-5 text-center font-bold">Starter ($10/mo)</th>
+                    <th className="p-5 text-center font-bold text-gold-400">Standard ($20/mo)</th>
+                    <th className="p-5 text-center font-bold">Intensive ($50/mo)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-sage-200/60 text-sage-800">
                   {comparisonMatrix.map((row, idx) => (
                     <tr key={idx} className={idx % 2 === 0 ? "bg-cream-50" : "bg-cream-100/60"}>
                       <td className="p-5 font-medium">{row.feature}</td>
-                      <td className="p-5 text-center">
+                      <td className="p-5 text-center font-semibold text-sage-900">
                         {typeof row.starter === "boolean" ? (
                           row.starter ? <FiCheck className="mx-auto text-sage-700 w-5 h-5" /> : <FiX className="mx-auto text-sage-400 w-4 h-4" />
                         ) : (
@@ -773,7 +741,7 @@ export default function Home() {
                           <span className="text-xs font-bold text-sage-900">{row.standard}</span>
                         )}
                       </td>
-                      <td className="p-5 text-center">
+                      <td className="p-5 text-center font-semibold text-sage-900">
                         {typeof row.intensive === "boolean" ? (
                           row.intensive ? <FiCheck className="mx-auto text-sage-700 w-5 h-5" /> : <FiX className="mx-auto text-sage-400 w-4 h-4" />
                         ) : (
@@ -806,7 +774,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-sage-800 text-sm leading-relaxed italic">
-                &ldquo;My 8-year-old son started from zero Arabic. In just 4 months with Sheikh Mahmoud, he can now read Surah Al-Baqarah with beautiful Tajweed! Truly a blessing.&rdquo;
+                &ldquo;My 8-year-old son started from zero Arabic with Norani Qaida. In just 3 months with Sheikh Mahmoud, he reads basic Surahs beautifully!&rdquo;
               </p>
               <div className="pt-4 border-t border-sage-200/60 flex items-center justify-between">
                 <div>
@@ -814,7 +782,7 @@ export default function Home() {
                   <p className="text-xs text-sage-600">Parent • United Kingdom</p>
                 </div>
                 <span className="text-xs font-semibold px-2.5 py-1 bg-sage-100 rounded-full text-sage-800">
-                  Kids Track
+                  Norani Qaida
                 </span>
               </div>
             </div>
@@ -991,23 +959,14 @@ export default function Home() {
                         onChange={handleFormChange}
                         className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
                       >
+                        <option value="Norani Qaida & Basic Quran for Kids">
+                          Norani Qaida & Basic Quran for Kids ($10/mo)
+                        </option>
                         <option value="Quran Reading & Tajweed Rules">
-                          Quran Reading & Tajweed Rules
+                          Quran Reading & Tajweed Rules ($20/mo)
                         </option>
                         <option value="Full Quran Hifz Program">
-                          Full Quran Hifz Program
-                        </option>
-                        <option value="Fun Quran & Arabic for Kids">
-                          Fun Quran & Arabic for Kids
-                        </option>
-                        <option value="Classical Quranic Arabic">
-                          Classical Quranic Arabic
-                        </option>
-                        <option value="Tafseer & Quranic Reflection">
-                          Tafseer & Quranic Reflection
-                        </option>
-                        <option value="Ijazah Sanad Certification">
-                          Ijazah Sanad Certification
+                          Full Quran Hifz Program ($50/mo)
                         </option>
                       </select>
                     </div>

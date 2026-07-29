@@ -6,7 +6,6 @@ import { FaQuran } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="bg-sage-900 text-cream-100 relative overflow-hidden pt-16 pb-10 border-t border-sage-800">
-      {/* Subtle Islamic Motif Overlay */}
       <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -27,7 +26,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sage-200/80 text-sm leading-relaxed max-w-sm">
-              Empowering students worldwide with authentic Quranic education, precise Tajweed rules, and spiritual enrichment under certified native Arab scholars.
+              Empowering students worldwide with authentic Norani Qaida, Quranic education, precise Tajweed rules, and spiritual enrichment under certified native Arab scholars.
             </p>
             <div className="pt-2 flex items-center gap-2 text-gold-400 text-sm font-serif italic">
               <FaQuran className="text-gold-400" />
@@ -42,29 +41,29 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm text-sage-200/80">
               <li>
-                <Link href="/courses" className="hover:text-gold-400 transition-colors">
-                  All Courses
-                </Link>
+                <a href="/#courses-section" className="hover:text-gold-400 transition-colors">
+                  Academy Programs
+                </a>
               </li>
               <li>
-                <Link href="/recitations" className="hover:text-gold-400 transition-colors">
+                <a href="/#recitations-section" className="hover:text-gold-400 transition-colors">
                   Audio Recitations
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/resources" className="hover:text-gold-400 transition-colors">
-                  Free Learning Resources
-                </Link>
+                <a href="/#resources-section" className="hover:text-gold-400 transition-colors">
+                  Free Study Resources
+                </a>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-gold-400 transition-colors">
-                  Tuition & Plans
-                </Link>
+                <a href="/#pricing-section" className="hover:text-gold-400 transition-colors">
+                  Tuition & Plans ($10 - $50)
+                </a>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-gold-400 transition-colors">
+                <a href="/#contact-section" className="hover:text-gold-400 transition-colors">
                   Schedule Free Trial
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -72,15 +71,15 @@ export default function Footer() {
           {/* Programs */}
           <div>
             <h4 className="font-serif text-cream-50 font-semibold text-lg mb-4 border-b border-gold-500/30 pb-2 inline-block">
-              Programs
+              Academy Programs
             </h4>
             <ul className="space-y-2.5 text-sm text-sage-200/80">
-              <li>Quran for Kids</li>
-              <li>Tajweed Mastery</li>
-              <li>Hifz (Memorization)</li>
-              <li>Tafseer Studies</li>
-              <li>Classical Arabic</li>
-              <li>Ijazah Certification</li>
+              <li>Norani Qaida & Basic Quran ($10/mo)</li>
+              <li>Quran Reading & Tajweed Rules ($20/mo)</li>
+              <li>Complete Quran Hifz Program ($50/mo)</li>
+              <li>1-on-1 Certified Scholars</li>
+              <li>Female Tutors Available</li>
+              <li>Official Ijazah Track</li>
             </ul>
           </div>
 
@@ -110,15 +109,15 @@ export default function Footer() {
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-sage-300/70">
           <p>© {new Date().getFullYear()} Noor Quran Academy. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="/contact" className="hover:text-gold-400 transition-colors">
+            <a href="/#contact-section" className="hover:text-gold-400 transition-colors">
               Privacy Policy
-            </Link>
-            <Link href="/contact" className="hover:text-gold-400 transition-colors">
+            </a>
+            <a href="/#contact-section" className="hover:text-gold-400 transition-colors">
               Terms of Service
-            </Link>
-            <Link href="/contact" className="hover:text-gold-400 transition-colors">
+            </a>
+            <a href="/#contact-section" className="hover:text-gold-400 transition-colors">
               Support
-            </Link>
+            </a>
           </div>
         </div>
       </div>

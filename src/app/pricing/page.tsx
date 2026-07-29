@@ -2,31 +2,31 @@ import SectionHeading from "@/components/SectionHeading";
 import PricingCard, { PricingPlan } from "@/components/PricingCard";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
-import { FiCheck, FiX, FiShield, FiHelpCircle, FiArrowRight } from "react-icons/fi";
+import { FiCheck, FiX, FiShield, FiArrowRight } from "react-icons/fi";
 
 const pricingPlans: PricingPlan[] = [
   {
     id: "starter",
     name: "Starter Plan",
-    priceUSD: 29,
+    priceUSD: 10,
     billingPeriod: "month",
-    description: "Ideal for beginners starting their Quranic journey with basic recitation.",
+    description: "Ideal for kids & beginners starting Norani Qaida & foundation reading.",
     features: [
       "2 Classes per Week (8/mo)",
       "30-Minute 1-on-1 Sessions",
+      "Norani Qaida & Foundation Track",
       "Certified Native Arab Tutor",
       "Flexible Class Rescheduling",
       "Monthly Progress Reports",
-      "Standard Student Portal Access",
     ],
-    ctaText: "Choose Starter Plan",
+    ctaText: "Choose Starter Plan ($10)",
   },
   {
     id: "standard",
     name: "Standard Plan",
-    priceUSD: 59,
+    priceUSD: 20,
     billingPeriod: "month",
-    description: "Our most popular track for steady progression and Tajweed fluency.",
+    description: "Our most popular track for steady Tajweed progression & fluent recitation.",
     features: [
       "3 Classes per Week (12/mo)",
       "30 to 45 Min Sessions",
@@ -34,15 +34,14 @@ const pricingPlans: PricingPlan[] = [
       "Tajweed & Recitation Assessment",
       "Free Learning Materials & PDFs",
       "Full Student Portal Access",
-      "Free Makeup Classes",
     ],
     popular: true,
-    ctaText: "Choose Standard Plan",
+    ctaText: "Choose Standard Plan ($20)",
   },
   {
     id: "intensive",
     name: "Intensive Hifz",
-    priceUSD: 99,
+    priceUSD: 50,
     billingPeriod: "month",
     description: "Comprehensive daily memorization and Ijazah preparation.",
     features: [
@@ -52,61 +51,20 @@ const pricingPlans: PricingPlan[] = [
       "Dedicated Revision Schedule",
       "Official Ijazah Certification Track",
       "Priority WhatsApp Tutor Access",
-      "Unlimited Class Makeup Requests",
     ],
-    ctaText: "Choose Intensive Track",
+    ctaText: "Choose Intensive Track ($50)",
   },
 ];
 
 const comparisonMatrix = [
-  {
-    feature: "Classes per Month",
-    starter: "8 Classes",
-    standard: "12 Classes",
-    intensive: "20 Classes",
-  },
-  {
-    feature: "Session Duration",
-    starter: "30 Mins",
-    standard: "30 - 45 Mins",
-    intensive: "45 - 60 Mins",
-  },
-  {
-    feature: "Tutor Type",
-    starter: "Certified Tutor",
-    standard: "Native Scholar (Male/Female)",
-    intensive: "Senior Al-Azhar Scholar",
-  },
-  {
-    feature: "1-on-1 Private Virtual Classroom",
-    starter: true,
-    standard: true,
-    intensive: true,
-  },
-  {
-    feature: "Free PDF Worksheets & Books",
-    starter: true,
-    standard: true,
-    intensive: true,
-  },
-  {
-    feature: "Class Rescheduling / Makeup",
-    starter: "2 per month",
-    standard: "Unlimited",
-    intensive: "Unlimited Priority",
-  },
-  {
-    feature: "Ijazah & Sanad Certification Track",
-    starter: false,
-    standard: "Available as Add-on",
-    intensive: true,
-  },
-  {
-    feature: "Direct WhatsApp Support With Tutor",
-    starter: false,
-    standard: false,
-    intensive: true,
-  },
+  { feature: "Monthly Tuition Fee", starter: "$10 / mo", standard: "$20 / mo", intensive: "$50 / mo" },
+  { feature: "Classes per Month", starter: "8 Classes", standard: "12 Classes", intensive: "20 Classes" },
+  { feature: "Session Duration", starter: "30 Mins", standard: "30 - 45 Mins", intensive: "45 - 60 Mins" },
+  { feature: "Norani Qaida Included", starter: true, standard: true, intensive: true },
+  { feature: "Tutor Type", starter: "Certified Tutor", standard: "Native Scholar", intensive: "Senior Al-Azhar Scholar" },
+  { feature: "1-on-1 Private Classroom", starter: true, standard: true, intensive: true },
+  { feature: "Free PDF Worksheets", starter: true, standard: true, intensive: true },
+  { feature: "Ijazah Sanad Track", starter: false, standard: "Add-on", intensive: true },
 ];
 
 export default function PricingPage() {
@@ -122,7 +80,7 @@ export default function PricingPage() {
           </ScrollReveal>
           <ScrollReveal direction="up">
             <h1 className="font-serif text-4xl sm:text-5xl font-extrabold tracking-tight">
-              Tuition Plans in US Dollars ($USD)
+              Tuition Plans in US Dollars ($10, $20, $50)
             </h1>
             <p className="text-sage-200/80 text-base max-w-2xl mx-auto font-sans mt-2">
               Invest in your spiritual growth. No hidden enrollment fees, no contracts. Pause or switch plans anytime.
@@ -176,9 +134,9 @@ export default function PricingPage() {
                 <thead>
                   <tr className="bg-sage-900 text-cream-50 font-serif border-b border-sage-800">
                     <th className="p-5 font-bold text-base">Plan Feature</th>
-                    <th className="p-5 text-center font-bold">Starter ($29/mo)</th>
-                    <th className="p-5 text-center font-bold text-gold-400">Standard ($59/mo)</th>
-                    <th className="p-5 text-center font-bold">Intensive ($99/mo)</th>
+                    <th className="p-5 text-center font-bold">Starter ($10/mo)</th>
+                    <th className="p-5 text-center font-bold text-gold-400">Standard ($20/mo)</th>
+                    <th className="p-5 text-center font-bold">Intensive ($50/mo)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-sage-200/60 text-sage-800">
@@ -188,7 +146,7 @@ export default function PricingPage() {
                       className={idx % 2 === 0 ? "bg-cream-50" : "bg-cream-100/60"}
                     >
                       <td className="p-5 font-medium">{row.feature}</td>
-                      <td className="p-5 text-center">
+                      <td className="p-5 text-center font-semibold text-sage-900">
                         {typeof row.starter === "boolean" ? (
                           row.starter ? (
                             <FiCheck className="mx-auto text-sage-700 w-5 h-5" />
@@ -210,7 +168,7 @@ export default function PricingPage() {
                           <span className="text-xs font-bold text-sage-900">{row.standard}</span>
                         )}
                       </td>
-                      <td className="p-5 text-center">
+                      <td className="p-5 text-center font-semibold text-sage-900">
                         {typeof row.intensive === "boolean" ? (
                           row.intensive ? (
                             <FiCheck className="mx-auto text-sage-700 w-5 h-5" />
@@ -239,7 +197,7 @@ export default function PricingPage() {
           </p>
           <div className="pt-2">
             <Link
-              href="/contact"
+              href="/#contact-section"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gold-400 text-sage-900 font-bold text-sm hover:bg-gold-300 transition-colors shadow-md"
             >
               <span>Schedule Free Trial Now</span>
