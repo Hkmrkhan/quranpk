@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { GiBookAura } from "react-icons/gi";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -30,15 +30,21 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-cream-100/95 backdrop-blur-md shadow-sm border-b border-sage-200/60 py-3"
-          : "bg-transparent py-4 sm:py-5"
+          ? "bg-cream-100/95 backdrop-blur-md shadow-sm border-b border-sage-200/60 py-2.5"
+          : "bg-transparent py-3 sm:py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sage-700 flex items-center justify-center text-gold-400 shadow-md group-hover:scale-105 transition-transform duration-300">
-            <GiBookAura className="w-5 h-5 sm:w-6 sm:h-6" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-gold-400 shadow-md group-hover:scale-105 transition-transform duration-300 flex-shrink-0 bg-sage-900">
+            <Image
+              src="/logo.jpg"
+              alt="Huzaifa's Online Quran Classes Logo"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-serif font-extrabold text-base sm:text-lg lg:text-xl tracking-tight text-sage-900 leading-tight group-hover:text-sage-700 transition-colors">

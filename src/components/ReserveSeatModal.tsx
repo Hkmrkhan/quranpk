@@ -102,8 +102,12 @@ export default function ReserveSeatModal({
         {/* Modal Header */}
         <div className="bg-sage-900 text-cream-50 p-5 sm:p-7 relative flex items-center justify-between border-b border-sage-800">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center text-xl sm:text-2xl flex-shrink-0">
-              <FaQuran />
+            <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-gold-400 flex-shrink-0 bg-sage-950 shadow-md">
+              <img
+                src="/logo.jpg"
+                alt="Huzaifa's Online Quran Classes Logo"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div>
               <span className="text-[10px] sm:text-xs font-extrabold text-gold-400 uppercase tracking-widest block">
