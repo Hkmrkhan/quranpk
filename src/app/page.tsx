@@ -17,7 +17,6 @@ import {
 } from "react-icons/gi";
 import {
   FiCheckCircle,
-  FiArrowRight,
   FiPlay,
   FiPause,
   FiDownload,
@@ -25,14 +24,12 @@ import {
   FiSend,
   FiAlertCircle,
   FiShield,
-  FiMail,
-  FiPhone,
   FiMapPin,
   FiCheck,
   FiX,
   FiBookmark,
 } from "react-icons/fi";
-import { FaQuran, FaStar, FaWhatsapp } from "react-icons/fa";
+import { FaQuran, FaStar } from "react-icons/fa";
 
 import CounterNumber from "@/components/CounterNumber";
 

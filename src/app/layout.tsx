@@ -92,11 +92,9 @@ const jsonLdSchema = {
       "@id": "https://quranpk.vercel.app/#organization",
       "name": "Huzaifa's Online Quran Classes",
       "url": "https://quranpk.vercel.app",
-      "logo": "https://quranpk.vercel.app/next.svg",
+      "logo": "https://quranpk.vercel.app/logo.png",
       "description":
         "Online Quran academy offering 1-on-1 Norani Qaida, Tajweed rules, and Hifz memorization for kids and adults worldwide.",
-      "telephone": "+18005557872",
-      "email": "info@noorquranacademy.com",
       "sameAs": ["https://github.com/Hkmrkhan/quranpk"],
       "offers": [
         {
