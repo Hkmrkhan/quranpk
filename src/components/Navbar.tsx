@@ -8,11 +8,11 @@ import { GiBookAura } from "react-icons/gi";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Courses", href: "/courses" },
-  { name: "Recitations", href: "/recitations" },
-  { name: "Resources", href: "/resources" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Contact", href: "/contact" },
+  { name: "Courses", href: "/#courses-section" },
+  { name: "Recitations", href: "/#recitations-section" },
+  { name: "Resources", href: "/#resources-section" },
+  { name: "Pricing", href: "/#pricing-section" },
+  { name: "Contact", href: "/#contact-section" },
 ];
 
 export default function Navbar() {
@@ -55,32 +55,26 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
             return (
-              <Link
-                key={link.href}
+              <a
+                key={link.name}
                 href={link.href}
-                className={`relative text-sm font-medium transition-colors hover:text-sage-700 ${
-                  isActive ? "text-sage-800 font-semibold" : "text-sage-900/80"
-                }`}
+                className="relative text-sm font-medium transition-colors text-sage-900/80 hover:text-sage-700"
               >
                 {link.name}
-                {isActive && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gold-500 rounded-full" />
-                )}
-              </Link>
+              </a>
             );
           })}
         </nav>
 
         {/* CTA Button */}
         <div className="hidden md:flex items-center gap-4">
-          <Link
-            href="/contact"
+          <a
+            href="/#contact-section"
             className="px-5 py-2.5 rounded-full bg-sage-700 text-cream-50 text-sm font-semibold hover:bg-sage-800 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 border border-sage-600"
           >
             Free Trial
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -97,25 +91,23 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-cream-50 border-b border-sage-200 px-6 py-6 space-y-4 shadow-xl animate-in slide-in-from-top duration-300">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
+            <a
+              key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className={`block text-base font-medium py-2 ${
-                pathname === link.href ? "text-sage-800 font-bold" : "text-sage-900/80"
-              }`}
+              className="block text-base font-medium py-2 text-sage-900/80 hover:text-sage-800"
             >
               {link.name}
-            </Link>
+            </a>
           ))}
           <div className="pt-2">
-            <Link
-              href="/contact"
+            <a
+              href="/#contact-section"
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full text-center py-3 rounded-full bg-sage-700 text-cream-50 font-semibold shadow-md"
             >
               Start Free Trial
-            </Link>
+            </a>
           </div>
         </div>
       )}

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import CourseCard, { CourseProps } from "@/components/CourseCard";
@@ -11,9 +14,25 @@ import {
   GiClockwork,
   GiHeartKey,
 } from "react-icons/gi";
-import { FiCheckCircle, FiArrowRight, FiPlayCircle, FiUsers, FiGlobe, FiAward } from "react-icons/fi";
-import { FaQuran, FaStar } from "react-icons/fa";
+import {
+  FiCheckCircle,
+  FiArrowRight,
+  FiPlay,
+  FiPause,
+  FiDownload,
+  FiHelpCircle,
+  FiSend,
+  FiAlertCircle,
+  FiShield,
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiCheck,
+  FiX,
+} from "react-icons/fi";
+import { FaQuran, FaStar, FaWhatsapp } from "react-icons/fa";
 
+// Sample Courses Data
 const sampleCourses: CourseProps[] = [
   {
     id: "tajweed-basics",
@@ -21,7 +40,7 @@ const sampleCourses: CourseProps[] = [
     arabicTitle: "تلاوة القرآن وأحكام التجويد",
     category: "Tajweed & Recitation",
     description:
-      "Master the correct pronunciation of Arabic letters and essential Tajweed rules with expert 1-on-1 guidance.",
+      "Master the correct pronunciation of Arabic letters, makharij, and essential Tajweed rules with expert 1-on-1 guidance.",
     level: "All Levels",
     duration: "30 Min / Session",
     schedule: "2 to 4 Days / Week",
@@ -34,12 +53,12 @@ const sampleCourses: CourseProps[] = [
     arabicTitle: "حفظ القرآن الكريم",
     category: "Memorization",
     description:
-      "A structured, step-by-step memorization track with systematic daily revision under Hafiz scholars.",
+      "A structured, step-by-step memorization track with systematic daily revision under certified Hafiz scholars.",
     level: "Intermediate",
     duration: "45 Min / Session",
     schedule: "3 to 5 Days / Week",
     priceUSD: 99,
-    featured: false,
+    featured: true,
   },
   {
     id: "quran-kids",
@@ -52,17 +71,121 @@ const sampleCourses: CourseProps[] = [
     duration: "30 Min / Session",
     schedule: "2 to 3 Days / Week",
     priceUSD: 49,
-    featured: false,
+  },
+  {
+    id: "classical-arabic",
+    title: "Classical Quranic Arabic",
+    arabicTitle: "اللغة العربية وقواعدها",
+    category: "Arabic Language",
+    description:
+      "Understand the language of the Quran directly. Covers grammar (Nahw), morphology (Sarf), and vocabulary.",
+    level: "Intermediate",
+    duration: "45 Min / Session",
+    schedule: "2 to 3 Days / Week",
+    priceUSD: 69,
+  },
+  {
+    id: "tafseer-studies",
+    title: "Tafseer & Quranic Reflection",
+    arabicTitle: "تفسير القرآن الكريم",
+    category: "Tafseer & Reflection",
+    description:
+      "Deepen your understanding of Surah contexts, historical revelations, and practical life guidance from authentic commentaries.",
+    level: "All Levels",
+    duration: "40 Min / Session",
+    schedule: "2 Days / Week",
+    priceUSD: 55,
+  },
+  {
+    id: "ijazah-certification",
+    title: "Ijazah Sanad Certification",
+    arabicTitle: "الإجازة بالسند المتصل",
+    category: "Memorization",
+    description:
+      "Exclusive track for advanced reciters to earn an official Sanad connected directly to the Prophet Muhammad (PBUH).",
+    level: "Advanced",
+    duration: "60 Min / Session",
+    schedule: "3 to 4 Days / Week",
+    priceUSD: 119,
   },
 ];
 
+// Recitation Audio Playlist
+const tracks = [
+  {
+    id: "1",
+    surahName: "Surah Al-Fatiha (The Opening)",
+    surahArabic: "سورة الفاتحة",
+    surahNumber: 1,
+    reciter: "Sheikh Mishary Rashid Al-Afasy",
+    style: "Hafs 'an 'Asim",
+    duration: "01:45",
+  },
+  {
+    id: "2",
+    surahName: "Surah Al-Kahf (The Cave)",
+    surahArabic: "سورة الكهف",
+    surahNumber: 18,
+    reciter: "Sheikh Abdul Rahman Al-Sudais",
+    style: "Hafs 'an 'Asim",
+    duration: "28:12",
+  },
+  {
+    id: "3",
+    surahName: "Surah Ar-Rahman (The Beneficent)",
+    surahArabic: "سورة الرحمن",
+    surahNumber: 55,
+    reciter: "Sheikh Mohamed Siddiq Al-Minshawi",
+    style: "Mujawwad Style",
+    duration: "14:30",
+  },
+  {
+    id: "4",
+    surahName: "Surah Yasin (Ya-Sin)",
+    surahArabic: "سورة يس",
+    surahNumber: 36,
+    reciter: "Sheikh Mahmoud Khalil Al-Hussary",
+    style: "Murattal Teaching Style",
+    duration: "18:05",
+  },
+];
+
+// Downloadable Resources
+const downloadableResources = [
+  {
+    title: "Essential Tajweed Rules Quick Reference Chart",
+    category: "Tajweed Guide",
+    fileSize: "2.4 MB",
+    format: "PDF Document",
+    description:
+      "A color-coded visual summary of Noon Sakinah, Meem Sakinah, Mudood (elongations), and Makharij.",
+  },
+  {
+    title: "Arabic Alphabet & Phonetics Cheat Sheet",
+    category: "Beginner Guide",
+    fileSize: "1.8 MB",
+    format: "PDF Document",
+    description:
+      "High-resolution chart showing letter forms (isolated, initial, medial, final) and heavy vs light distinction.",
+  },
+  {
+    title: "Daily Quranic Memorization (Hifz) Logbook",
+    category: "Study Tool",
+    fileSize: "3.1 MB",
+    format: "Printable PDF",
+    description:
+      "A 30-day structured tracker for recording daily Sabaq, Sabqi, and Manzil revisions.",
+  },
+];
+
+// Pricing Plans
 const pricingPlans: PricingPlan[] = [
   {
     id: "starter",
     name: "Starter Plan",
     priceUSD: 29,
     billingPeriod: "month",
-    description: "Ideal for beginners starting their Quranic journey.",
+    description: "Ideal for beginners starting their Quranic journey with basic recitation.",
     features: [
       "2 Classes per Week (8/mo)",
       "30-Minute 1-on-1 Sessions",
@@ -107,6 +230,17 @@ const pricingPlans: PricingPlan[] = [
   },
 ];
 
+// Comparison Matrix
+const comparisonMatrix = [
+  { feature: "Classes per Month", starter: "8 Classes", standard: "12 Classes", intensive: "20 Classes" },
+  { feature: "Session Duration", starter: "30 Mins", standard: "30 - 45 Mins", intensive: "45 - 60 Mins" },
+  { feature: "Tutor Type", starter: "Certified Tutor", standard: "Native Scholar", intensive: "Senior Al-Azhar Scholar" },
+  { feature: "1-on-1 Private Classroom", starter: true, standard: true, intensive: true },
+  { feature: "Free PDF Worksheets", starter: true, standard: true, intensive: true },
+  { feature: "Ijazah Sanad Track", starter: false, standard: "Add-on", intensive: true },
+];
+
+// Why Choose Us Cards
 const whyChooseUs = [
   {
     icon: GiTeacher,
@@ -124,7 +258,7 @@ const whyChooseUs = [
     icon: GiClockwork,
     title: "24/7 Flexible Timings",
     description:
-      "Schedule classes around your work, school, or timezone. Reschedule with ease via our student portal.",
+      "Schedule classes around your work, school, or timezone. Reschedule with ease anytime.",
   },
   {
     icon: GiHeartKey,
@@ -146,17 +280,89 @@ const whyChooseUs = [
   },
 ];
 
+// FAQ List
+const faqs = [
+  {
+    q: "How do the 1-on-1 online classes work?",
+    a: "Classes are held live via our virtual classroom portal or Zoom/Skype. You connect 1-on-1 with your personal tutor who shares digital Mushaf screens and corrects your recitation in real time.",
+  },
+  {
+    q: "Can I choose my preferred class schedule?",
+    a: "Yes! We operate 24 hours a day, 7 days a week. You can select exact days and time slots that fit your local timezone.",
+  },
+  {
+    q: "Are female Quran teachers available for sisters and children?",
+    a: "Absoluty. We have a dedicated team of highly qualified female Ustadhas from Al-Azhar University available for sisters and kids.",
+  },
+  {
+    q: "What if I miss a class due to an emergency?",
+    a: "You can easily reschedule any class up to 4 hours prior to the session start time through our portal without any extra charge.",
+  },
+];
+
 export default function Home() {
+  const [playingId, setPlayingId] = useState<string | null>("1");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    course: "Quran Reading & Tajweed Rules",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [responseMsg, setResponseMsg] = useState("");
+
+  const currentTrack = tracks.find((t) => t.id === playingId) || tracks[0];
+
+  const handleFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setResponseMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus("success");
+        setResponseMsg(data.message || "Thank you! Your trial request has been submitted.");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          course: "Quran Reading & Tajweed Rules",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+        setResponseMsg(data.error || "Failed to submit request.");
+      }
+    } catch (err) {
+      setStatus("error");
+      setResponseMsg("An error occurred. Please check your network connection.");
+    }
+  };
+
   return (
     <div className="space-y-24 pb-16 overflow-hidden">
-      {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-16 bg-islamic-pattern">
-        {/* Soft Decorative Glow */}
+      {/* 1. HERO SECTION */}
+      <section className="relative min-h-[90vh] flex items-center pt-28 pb-16 bg-islamic-pattern">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-sage-200/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
+            {/* Left Column */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <ScrollReveal direction="down" delay={0.1}>
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-sage-100 text-sage-800 border border-sage-300/60 shadow-xs">
@@ -185,24 +391,23 @@ export default function Home() {
 
               <ScrollReveal direction="up" delay={0.4}>
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                  <Link
-                    href="/contact"
+                  <a
+                    href="#contact-section"
                     className="w-full sm:w-auto px-8 py-4 rounded-full bg-sage-700 text-cream-50 font-bold text-base hover:bg-sage-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 border border-sage-600"
                   >
                     <span>Book Your Free Trial</span>
                     <FiArrowRight className="w-5 h-5 text-gold-400" />
-                  </Link>
+                  </a>
 
-                  <Link
-                    href="/courses"
+                  <a
+                    href="#courses-section"
                     className="w-full sm:w-auto px-8 py-4 rounded-full bg-cream-50 text-sage-900 font-semibold text-base hover:bg-sage-100/60 transition-all duration-300 shadow-sm border border-sage-200 flex items-center justify-center gap-2"
                   >
-                    <span>Explore Courses</span>
-                  </Link>
+                    <span>Explore Programs</span>
+                  </a>
                 </div>
               </ScrollReveal>
 
-              {/* Quick Trust Badges */}
               <ScrollReveal direction="up" delay={0.5}>
                 <div className="pt-6 flex items-center justify-center lg:justify-start gap-6 text-xs text-sage-700">
                   <div className="flex items-center gap-1.5">
@@ -225,7 +430,6 @@ export default function Home() {
             <div className="lg:col-span-5">
               <ScrollReveal direction="left" delay={0.3}>
                 <div className="relative mx-auto max-w-md">
-                  {/* Decorative Frame */}
                   <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-gold-400/30 to-sage-400/30 blur-xl opacity-70" />
                   <div className="relative rounded-3xl bg-cream-50 p-8 shadow-2xl border border-sage-200/80 space-y-6">
                     <div className="text-center space-y-2 border-b border-sage-200/60 pb-6">
@@ -255,12 +459,12 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <Link
-                      href="/contact"
+                    <a
+                      href="#contact-section"
                       className="block w-full text-center py-3.5 rounded-full bg-gold-400 text-sage-900 font-bold text-sm hover:bg-gold-300 transition-colors shadow-md"
                     >
                       Schedule Trial Session Now
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </ScrollReveal>
@@ -269,7 +473,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS BANNER */}
+      {/* 2. STATS BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="up">
           <div className="bg-sage-900 rounded-3xl p-8 sm:p-12 text-cream-100 shadow-xl border border-sage-800 relative overflow-hidden">
@@ -303,34 +507,24 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* FEATURED COURSES SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 3. COURSES SHOWCASE SECTION */}
+      <section id="courses-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <SectionHeading
           badge="Structured Learning Tracks"
-          title="Our Featured Quranic Courses"
-          subtitle="Designed for all age groups and skill levels, from beginners learning Arabic letters to advanced students seeking Ijazah certification."
+          title="Our Comprehensive Quranic Programs"
+          subtitle="Designed for all age groups and skill levels, from absolute beginners learning Arabic letters to advanced students seeking Ijazah certification."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sampleCourses.map((course, idx) => (
-            <ScrollReveal key={course.id} direction="up" delay={idx * 0.15}>
+            <ScrollReveal key={course.id} direction="up" delay={idx * 0.1}>
               <CourseCard course={course} />
             </ScrollReveal>
           ))}
         </div>
-
-        <div className="text-center mt-12">
-          <Link
-            href="/courses"
-            className="inline-flex items-center gap-2 text-sage-800 hover:text-sage-600 font-bold text-sm underline decoration-gold-400 underline-offset-8 transition-all"
-          >
-            <span>View All Academy Programs</span>
-            <FiArrowRight />
-          </Link>
-        </div>
       </section>
 
-      {/* WHY CHOOSE US SECTION */}
+      {/* 4. WHY CHOOSE US SECTION */}
       <section className="bg-sage-50/80 py-20 border-y border-sage-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -362,12 +556,165 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRICING SECTION (USD) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 5. AUDIO RECITATIONS SANCTUARY SECTION */}
+      <section id="recitations-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+        <SectionHeading
+          badge="Audio Sanctuary"
+          title="Inspiring Quran Recitations"
+          subtitle="Listen to serene recitations from world-renowned master Qaris to refine your Tajweed ear and nourish your soul."
+        />
+
+        {/* Sticky Player Card */}
+        <div className="bg-gradient-to-r from-sage-800 to-sage-900 rounded-3xl p-6 sm:p-8 text-cream-100 shadow-2xl border border-sage-700 flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+          <div className="flex items-center gap-4 w-full md:w-auto">
+            <div className="w-14 h-14 rounded-2xl bg-gold-500/20 border border-gold-400/40 text-gold-400 flex items-center justify-center text-2xl flex-shrink-0">
+              <FaQuran />
+            </div>
+            <div>
+              <span className="text-xs text-gold-400 font-semibold tracking-wider uppercase block">
+                {playingId ? "Currently Playing" : "Select a Surah"}
+              </span>
+              <h3 className="font-serif font-bold text-lg text-cream-50">
+                {currentTrack.surahName}
+              </h3>
+              <p className="text-xs text-sage-200/80">
+                {currentTrack.reciter} • {currentTrack.style}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-1 h-8">
+            {[40, 70, 30, 90, 50, 80, 40, 100, 60, 30, 80, 50].map((h, i) => (
+              <div
+                key={i}
+                className={`w-1 bg-gold-400 rounded-full transition-all duration-300 ${
+                  playingId ? "animate-pulse" : "opacity-40"
+                }`}
+                style={{ height: playingId ? `${h}%` : "20%" }}
+              />
+            ))}
+          </div>
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setPlayingId(playingId ? null : currentTrack.id)}
+              className="w-12 h-12 rounded-full bg-gold-400 text-sage-900 flex items-center justify-center text-xl font-bold shadow-md hover:bg-gold-300 transition-transform active:scale-95"
+            >
+              {playingId ? <FiPause /> : <FiPlay className="ml-0.5" />}
+            </button>
+            <span className="text-xs text-sage-300 font-mono">{currentTrack.duration}</span>
+          </div>
+        </div>
+
+        {/* Surah Track List */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {tracks.map((track, idx) => {
+            const isSelected = playingId === track.id;
+            return (
+              <ScrollReveal key={track.id} direction="up" delay={idx * 0.08}>
+                <div
+                  className={`p-6 rounded-2xl border transition-all duration-300 flex items-center justify-between gap-4 ${
+                    isSelected
+                      ? "bg-cream-50 border-gold-400/90 shadow-md ring-1 ring-gold-400/40"
+                      : "bg-cream-50/70 hover:bg-cream-50 border-sage-200/80 shadow-xs"
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={() => setPlayingId(isSelected ? null : track.id)}
+                      className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
+                        isSelected
+                          ? "bg-sage-700 text-gold-400 shadow-md"
+                          : "bg-sage-100 text-sage-800 hover:bg-sage-200"
+                      }`}
+                    >
+                      {isSelected ? <FiPause /> : <FiPlay className="ml-0.5" />}
+                    </button>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-gold-600 bg-gold-400/10 px-2 py-0.5 rounded">
+                          #{track.surahNumber}
+                        </span>
+                        <h4 className="font-serif font-bold text-sage-900 text-base">
+                          {track.surahName}
+                        </h4>
+                      </div>
+                      <p className="text-xs text-sage-600 mt-1">
+                        {track.reciter} • <span className="italic">{track.style}</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="text-right">
+                    <span className="font-serif font-arabic text-lg text-sage-700 block">
+                      {track.surahArabic}
+                    </span>
+                    <span className="text-xs text-sage-600 font-mono mt-0.5 block">
+                      {track.duration}
+                    </span>
+                  </div>
+                </div>
+              </ScrollReveal>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 6. FREE RESOURCES SECTION */}
+      <section id="resources-section" className="bg-sage-50/80 py-20 border-y border-sage-200/60 scroll-mt-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Free PDF Downloads"
+            title="Printable Study Worksheets & Charts"
+            subtitle="Curated by our academic department to aid home practice between your live 1-on-1 tutoring sessions."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {downloadableResources.map((res, idx) => (
+              <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
+                <div className="bg-cream-50 rounded-2xl p-8 border border-sage-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between h-full">
+                  <div>
+                    <div className="flex items-center justify-between gap-4 mb-4">
+                      <span className="px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wider bg-sage-100 text-sage-800 border border-sage-200">
+                        {res.category}
+                      </span>
+                      <span className="text-xs text-sage-600 font-mono">
+                        {res.fileSize}
+                      </span>
+                    </div>
+                    <h3 className="font-serif font-bold text-lg text-sage-900 mb-2">
+                      {res.title}
+                    </h3>
+                    <p className="text-sage-700/80 text-sm leading-relaxed mb-6">
+                      {res.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-sage-200/60 flex items-center justify-between">
+                    <span className="text-xs text-gold-600 font-semibold flex items-center gap-1">
+                      <FiCheckCircle /> Free PDF
+                    </span>
+                    <button
+                      onClick={() => alert(`Downloading sample guide: ${res.title}`)}
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-sage-700 text-cream-50 text-xs font-semibold hover:bg-sage-800 transition-colors shadow-xs"
+                    >
+                      <FiDownload className="w-3.5 h-3.5" />
+                      <span>Download</span>
+                    </button>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. PRICING SECTION (USD) */}
+      <section id="pricing-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28 space-y-12">
         <SectionHeading
           badge="Affordable Monthly Plans"
           title="Transparent Tuition Pricing (USD)"
-          subtitle="Choose the plan that fits your schedule. No long-term contracts, cancel or pause anytime with our 100% money-back guarantee."
+          subtitle="Choose the plan that fits your schedule. No setup fees, cancel or pause anytime with our 100% money-back guarantee."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center pt-4">
@@ -377,9 +724,72 @@ export default function Home() {
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Guarantee Banner */}
+        <ScrollReveal direction="up">
+          <div className="bg-cream-50 p-8 rounded-3xl border border-gold-400/60 shadow-md flex flex-col md:flex-row items-center gap-6 text-center md:text-left max-w-4xl mx-auto">
+            <div className="w-16 h-16 rounded-full bg-gold-400/20 text-gold-600 border border-gold-400/40 flex items-center justify-center text-3xl flex-shrink-0">
+              <FiShield />
+            </div>
+            <div className="space-y-1">
+              <h3 className="font-serif font-bold text-xl text-sage-900">
+                100% Satisfaction & Money-Back Guarantee
+              </h3>
+              <p className="text-sage-700/80 text-sm leading-relaxed">
+                If within your first 7 days of paid enrollment you are not completely satisfied with your tutor or course progression, we will refund your tuition in full with no questions asked.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Feature Matrix */}
+        <ScrollReveal direction="up">
+          <div className="bg-cream-50 rounded-3xl border border-sage-200/80 shadow-xs overflow-hidden max-w-5xl mx-auto">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm border-collapse">
+                <thead>
+                  <tr className="bg-sage-900 text-cream-50 font-serif border-b border-sage-800">
+                    <th className="p-5 font-bold text-base">Plan Feature</th>
+                    <th className="p-5 text-center font-bold">Starter ($29/mo)</th>
+                    <th className="p-5 text-center font-bold text-gold-400">Standard ($59/mo)</th>
+                    <th className="p-5 text-center font-bold">Intensive ($99/mo)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-sage-200/60 text-sage-800">
+                  {comparisonMatrix.map((row, idx) => (
+                    <tr key={idx} className={idx % 2 === 0 ? "bg-cream-50" : "bg-cream-100/60"}>
+                      <td className="p-5 font-medium">{row.feature}</td>
+                      <td className="p-5 text-center">
+                        {typeof row.starter === "boolean" ? (
+                          row.starter ? <FiCheck className="mx-auto text-sage-700 w-5 h-5" /> : <FiX className="mx-auto text-sage-400 w-4 h-4" />
+                        ) : (
+                          <span className="text-xs font-semibold">{row.starter}</span>
+                        )}
+                      </td>
+                      <td className="p-5 text-center font-semibold text-sage-900 bg-gold-400/5">
+                        {typeof row.standard === "boolean" ? (
+                          row.standard ? <FiCheck className="mx-auto text-gold-600 w-5 h-5" /> : <FiX className="mx-auto text-sage-400 w-4 h-4" />
+                        ) : (
+                          <span className="text-xs font-bold text-sage-900">{row.standard}</span>
+                        )}
+                      </td>
+                      <td className="p-5 text-center">
+                        {typeof row.intensive === "boolean" ? (
+                          row.intensive ? <FiCheck className="mx-auto text-sage-700 w-5 h-5" /> : <FiX className="mx-auto text-sage-400 w-4 h-4" />
+                        ) : (
+                          <span className="text-xs font-semibold">{row.intensive}</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ScrollReveal>
       </section>
 
-      {/* TESTIMONIALS SECTION */}
+      {/* 8. TESTIMONIALS SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Student Stories"
@@ -456,32 +866,250 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FINAL CTA BANNER */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal direction="up">
-          <div className="bg-gradient-to-r from-sage-900 via-sage-800 to-sage-900 rounded-3xl p-10 sm:p-16 text-center text-cream-50 shadow-2xl relative overflow-hidden border border-sage-700">
-            <div className="max-w-2xl mx-auto space-y-6 relative z-10">
-              <span className="inline-block text-gold-400 font-serif font-arabic text-2xl">
-                وَقُل رَّبِّ زِدْنِي عِلْمًا
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-extrabold tracking-tight">
-                Begin Your Journey With The Quran Today
-              </h2>
-              <p className="text-sage-200/80 text-sm sm:text-base leading-relaxed">
-                Take the first step towards fluent recitation and spiritual clarity. Book your free 1-on-1 evaluation session with our master tutors.
-              </p>
-              <div className="pt-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gold-400 text-sage-900 font-bold text-base hover:bg-gold-300 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-                >
-                  <span>Claim Your Free Trial Session</span>
-                  <FiArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-            </div>
+      {/* 9. FAQ ACCORDION SECTION */}
+      <section className="bg-sage-50/80 py-16 border-y border-sage-200/60">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
+          <SectionHeading
+            badge="Got Questions?"
+            title="Frequently Asked Questions"
+            subtitle="Everything you need to know about our virtual classroom, certified scholars, and scheduling flexibility."
+          />
+
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
+                <div className="bg-cream-50 p-6 rounded-2xl border border-sage-200/80 shadow-xs space-y-2">
+                  <h4 className="font-serif font-bold text-lg text-sage-900 flex items-center gap-2">
+                    <FiHelpCircle className="text-gold-500 flex-shrink-0" />
+                    {faq.q}
+                  </h4>
+                  <p className="text-sage-700/80 text-sm leading-relaxed pl-6">
+                    {faq.a}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 10. INTERACTIVE CONTACT & TRIAL FORM SECTION */}
+      <section id="contact-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+        <SectionHeading
+          badge="Start Learning Today"
+          title="Schedule Your Free 3-Day Trial"
+          subtitle="Fill out the form below to connect live with a master tutor. No credit card required, cancel anytime."
+        />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Form Column */}
+          <div className="lg:col-span-7">
+            <ScrollReveal direction="up">
+              <div className="bg-cream-50 p-8 sm:p-10 rounded-3xl border border-sage-200/80 shadow-md">
+                <h3 className="font-serif text-2xl font-bold text-sage-900 mb-2">
+                  Send Trial Inquiry
+                </h3>
+                <p className="text-xs text-sage-600 mb-6">
+                  Our academic advisor will reach out within 24 hours to confirm your trial slot.
+                </p>
+
+                {status === "success" && (
+                  <div className="mb-6 p-4 rounded-xl bg-sage-100 border border-sage-300 text-sage-800 text-sm flex items-start gap-3">
+                    <FiCheckCircle className="text-sage-700 w-5 h-5 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold">Request Sent Successfully!</p>
+                      <p className="text-xs mt-1 text-sage-700">{responseMsg}</p>
+                    </div>
+                  </div>
+                )}
+
+                {status === "error" && (
+                  <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm flex items-start gap-3">
+                    <FiAlertCircle className="text-red-600 w-5 h-5 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold">Submission Error</p>
+                      <p className="text-xs mt-1 text-red-700">{responseMsg}</p>
+                    </div>
+                  </div>
+                )}
+
+                <form onSubmit={handleFormSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-1.5">
+                        Your Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleFormChange}
+                        placeholder="e.g. Zakariya Ahmad"
+                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-1.5">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleFormChange}
+                        placeholder="zakariya@example.com"
+                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-1.5">
+                        WhatsApp / Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleFormChange}
+                        placeholder="+1 (555) 000-0000"
+                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-1.5">
+                        Interested Program
+                      </label>
+                      <select
+                        name="course"
+                        value={formData.course}
+                        onChange={handleFormChange}
+                        className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+                      >
+                        <option value="Quran Reading & Tajweed Rules">
+                          Quran Reading & Tajweed Rules
+                        </option>
+                        <option value="Full Quran Hifz Program">
+                          Full Quran Hifz Program
+                        </option>
+                        <option value="Fun Quran & Arabic for Kids">
+                          Fun Quran & Arabic for Kids
+                        </option>
+                        <option value="Classical Quranic Arabic">
+                          Classical Quranic Arabic
+                        </option>
+                        <option value="Tafseer & Quranic Reflection">
+                          Tafseer & Quranic Reflection
+                        </option>
+                        <option value="Ijazah Sanad Certification">
+                          Ijazah Sanad Certification
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-sage-800 mb-1.5">
+                      Your Message or Preferred Timezone *
+                    </label>
+                    <textarea
+                      name="message"
+                      required
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleFormChange}
+                      placeholder="Please let us know your preferred study days, age of student, or any specific goals..."
+                      className="w-full px-4 py-3 rounded-xl bg-cream-100 border border-sage-200 text-sm text-sage-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="w-full py-4 rounded-full bg-sage-700 text-cream-50 font-bold text-sm hover:bg-sage-800 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 border border-sage-600 disabled:opacity-50"
+                  >
+                    <FiSend className="w-4 h-4 text-gold-400" />
+                    <span>{status === "loading" ? "Submitting..." : "Submit Trial Request"}</span>
+                  </button>
+                </form>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Contact Details Sidebar */}
+          <div className="lg:col-span-5 space-y-6">
+            <ScrollReveal direction="left" delay={0.2}>
+              <div className="bg-sage-900 text-cream-100 p-8 rounded-3xl shadow-xl border border-sage-800 space-y-6">
+                <h3 className="font-serif font-bold text-2xl border-b border-sage-800 pb-4 text-cream-50">
+                  Direct Academy Channels
+                </h3>
+
+                <div className="space-y-5 text-sm">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center flex-shrink-0 mt-1">
+                      <FiMail />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-cream-50">Email Support</h4>
+                      <p className="text-xs text-sage-200/80 mt-0.5">info@noorquranacademy.com</p>
+                      <p className="text-[11px] text-gold-400/80 mt-1">Replies within 4-6 hours</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center flex-shrink-0 mt-1">
+                      <FaWhatsapp />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-cream-50">Instant WhatsApp Chat</h4>
+                      <p className="text-xs text-sage-200/80 mt-0.5">+1 (800) 555-7872</p>
+                      <p className="text-[11px] text-gold-400/80 mt-1">Available 24/7 for quick Q&A</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center flex-shrink-0 mt-1">
+                      <FiPhone />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-cream-50">Toll-Free Phone</h4>
+                      <p className="text-xs text-sage-200/80 mt-0.5">+1 (800) 555-QURAN</p>
+                      <p className="text-[11px] text-gold-400/80 mt-1">Mon - Fri • 9am - 6pm EST</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center flex-shrink-0 mt-1">
+                      <FiMapPin />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-cream-50">Global Online Campus</h4>
+                      <p className="text-xs text-sage-200/80 mt-0.5">
+                        Students across USA, UK, Canada, Australia, Europe & UAE.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="left" delay={0.3}>
+              <div className="bg-cream-50 p-6 rounded-3xl border border-sage-200/80 shadow-xs text-center space-y-2">
+                <p className="font-serif font-arabic text-xl text-sage-800">
+                  خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ
+                </p>
+                <p className="text-xs font-serif text-sage-700 italic">
+                  &ldquo;The best among you are those who learn the Quran and teach it.&rdquo; (Sahih Al-Bukhari)
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
       </section>
     </div>
   );
