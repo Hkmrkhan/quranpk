@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { FiClock, FiBookOpen } from "react-icons/fi";
 
 export interface CourseProps {
@@ -19,11 +16,8 @@ export interface CourseProps {
 
 export default function CourseCard({ course }: { course: CourseProps }) {
   return (
-    <motion.div
-      whileHover={{ y: -8, scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      transition={{ type: "spring", stiffness: 260, damping: 20 }}
-      className={`group relative bg-cream-50 rounded-2xl p-6 sm:p-8 border transition-all duration-300 flex flex-col justify-between ${
+    <div
+      className={`group relative bg-cream-50 rounded-2xl p-6 sm:p-8 border transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 ${
         course.featured
           ? "border-gold-500 shadow-md ring-1 ring-gold-400/40 hover:shadow-2xl"
           : "border-sage-300 hover:border-sage-500 shadow-xs hover:shadow-xl"
@@ -92,6 +86,6 @@ export default function CourseCard({ course }: { course: CourseProps }) {
           Enroll Now
         </a>
       </div>
-    </motion.div>
+    </div>
   );
 }

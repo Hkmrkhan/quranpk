@@ -16,30 +16,30 @@ interface ScrollRevealProps {
 export default function ScrollReveal({
   children,
   direction = "up",
-  delay = 0.1,
-  duration = 0.7,
+  delay = 0.05,
+  duration = 0.4,
   className = "",
-  distance = 35,
+  distance = 20,
   once = true,
 }: ScrollRevealProps) {
   const getInitialState = () => {
     switch (direction) {
       case "up":
-        return { y: distance, opacity: 0, scale: 0.98 };
+        return { y: distance, opacity: 0 };
       case "down":
-        return { y: -distance, opacity: 0, scale: 0.98 };
+        return { y: -distance, opacity: 0 };
       case "left":
-        return { x: distance, opacity: 0, scale: 0.98 };
+        return { x: distance, opacity: 0 };
       case "right":
-        return { x: -distance, opacity: 0, scale: 0.98 };
+        return { x: -distance, opacity: 0 };
       case "zoom":
-        return { opacity: 0, scale: 0.9 };
+        return { opacity: 0, scale: 0.95 };
       case "flip":
-        return { opacity: 0, rotateX: 20, y: distance };
+        return { opacity: 0, y: distance };
       case "none":
         return { opacity: 0 };
       default:
-        return { y: distance, opacity: 0, scale: 0.98 };
+        return { y: distance, opacity: 0 };
     }
   };
 
@@ -51,14 +51,14 @@ export default function ScrollReveal({
         y: 0,
         opacity: 1,
         scale: 1,
-        rotateX: 0,
       }}
-      viewport={{ once, margin: "-60px" }}
+      viewport={{ once, margin: "0px" }}
       transition={{
         duration,
         delay,
-        ease: [0.16, 1, 0.3, 1], // Fluid custom spring curve
+        ease: "easeOut",
       }}
+      style={{ willChange: "opacity, transform" }}
       className={className}
     >
       {children}
