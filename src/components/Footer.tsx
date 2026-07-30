@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FiMapPin, FiClock, FiCheckCircle } from "react-icons/fi";
 import { FaQuran } from "react-icons/fa";
 
@@ -13,9 +14,11 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3">
               <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-gold-400 flex-shrink-0 bg-sage-950 p-0.5 shadow-md">
-                <img
+                <Image
                   src="/logo.png"
                   alt="Huzaifa's Online Quran Classes Logo"
+                  width={56}
+                  height={56}
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>

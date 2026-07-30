@@ -2,11 +2,15 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import SectionHeading from "@/components/SectionHeading";
 import CourseCard, { CourseProps } from "@/components/CourseCard";
 import PricingCard, { PricingPlan } from "@/components/PricingCard";
-import ReserveSeatModal from "@/components/ReserveSeatModal";
 import ScrollReveal from "@/components/ScrollReveal";
+
+const ReserveSeatModal = dynamic(() => import("@/components/ReserveSeatModal"), {
+  ssr: false,
+});
 import {
   GiBookAura,
   GiTeacher,

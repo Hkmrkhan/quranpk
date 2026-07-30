@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 const navLinks = [
@@ -38,9 +39,12 @@ export default function Navbar() {
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-gold-400 shadow-md group-hover:scale-105 transition-transform duration-300 flex-shrink-0 bg-sage-950 p-0.5">
-            <img
+            <Image
               src="/logo.png"
               alt="Huzaifa's Online Quran Classes Logo"
+              width={56}
+              height={56}
+              priority
               className="w-full h-full object-cover rounded-full"
             />
           </div>
